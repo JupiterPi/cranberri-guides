@@ -2,10 +2,11 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {CbChapter, CbCode, CbEvaluationTable, CbHeader} from "./components/cb-components";
-import {DocBundleEinfuehrungUndBenutzungsanweisung, DocLehrbogenEvaluation} from "./documents";
+import {CbChapter, CbCode, CbEvaluationTable, CbHeader, CbImageDot} from "./components/cb-components";
+import {DocBundleEinfuehrungUndBenutzungsanweisung, DocLehrbogen, DocLehrbogenEvaluation} from "./documents";
 import {RouterModule} from "@angular/router";
 import {HomeComponent} from './home/home.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,8 +17,10 @@ import {HomeComponent} from './home/home.component';
     CbChapter,
     CbCode,
     CbEvaluationTable,
+    CbImageDot,
 
     DocBundleEinfuehrungUndBenutzungsanweisung,
+    DocLehrbogen,
     DocLehrbogenEvaluation,
   ],
   imports: [
@@ -26,7 +29,9 @@ import {HomeComponent} from './home/home.component';
       { path: "", component: HomeComponent },
       { path: "bundle-einfuehrung-und-benutzungsanweisung", component: DocBundleEinfuehrungUndBenutzungsanweisung },
       { path: "lehrbogen-evaluation", component: DocLehrbogenEvaluation },
-    ])
+      { path: "lehrbogen", component: DocLehrbogen },
+    ]),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: "cb-header",
@@ -35,13 +36,31 @@ export class CbChapter {
     <div class="cb-code"
          [class.blue]="color == 'blue'"
          [class.grey]="color == 'grey'"
+         [class.block]="source != undefined"
     >
-      <ng-content></ng-content>
+      <ng-container *ngIf="source == undefined">
+        <ng-content></ng-content>
+      </ng-container>
+      <ng-container *ngIf="source != undefined">
+        <pre class="line" *ngFor="let line of sourceLines">{{line}}</pre>
+      </ng-container>
     </div>
   `
 })
-export class CbCode {
-  @Input("color") color: "none" | "blue" | "grey" = "none";
+export class CbCode implements OnInit {
+  @Input("color") color: "none" | "blue" | "grey" = "blue";
+  @Input("src") source?: string;
+  sourceLines?: string[];
+
+  constructor(private http: HttpClient) {}
+  ngOnInit() {
+    if (this.source != undefined) {
+      this.http.get(this.source, {responseType: "text"}).subscribe(text => {
+        console.log(text.split(/\n/));
+        return this.sourceLines = text.split("\n");
+      });
+    }
+  }
 }
 
 @Component({
@@ -75,3 +94,13 @@ export class CbEvaluationTable {
     return question.endsWith("___");
   }
 }
+
+@Component({
+  selector: "cb-img-dot",
+  template: `
+    <div class="cb-img-dot">
+      <div><ng-content></ng-content></div>
+    </div>
+  `
+})
+export class CbImageDot {}

@@ -10,9 +10,22 @@ $font-size-text: 18px;
   font-size: $font-size-text;
 }
 
-p, li {
+p, li, td, .text {
   font-weight: 500;
   line-height: 1.5;
+}
+
+b {
+  font-weight: 600;
+}
+
+a {
+  color: $cb-blue;
+  text-decoration: none;
+  transition: color 200ms;
+  &:hover {
+    color: darken($cb-blue, 20%);
+  }
 }
 
 .cb-header {
@@ -83,12 +96,25 @@ p, li {
 .cb-code {
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
+  padding: 0 6px;
+  border-radius: 7px;
 
   &.blue {
-    background-color: transparentize($cb-blue, 0.5);
+    background-color: transparentize($cb-blue, 0.7);
   }
   &.grey {
-    background-color: transparentize(grey, 0.5);
+    background-color: transparentize(grey, 0.7);
+  }
+
+  &.block {
+    display: block;
+    padding: 7px 10px;
+
+    .line {
+      font-family: 'JetBrains Mono', monospace;
+      margin: 3px;
+      min-height: $font-size-text;
+    }
   }
 }
 
@@ -127,6 +153,12 @@ img {
 .cb-spacer {
   display: inline-block;
   width: 50px;
+}
+
+/* class-only */
+.cb-space {
+  display: inline-block;
+  width: 5px;
 }
 
 /* class-only */
@@ -185,5 +217,22 @@ table.cb-evaluation-table {
 
   .space {
     height: 50px;
+  }
+}
+
+.cb-img-dot {
+  position: relative;
+  bottom: 1px;
+  height: calc($font-size-text + 7px);
+  width: calc($font-size-text + 7px);
+  background-color: $cb-blue;
+  border-radius: 100%;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    font-size: 80%;
   }
 }
