@@ -236,3 +236,14 @@ table.cb-evaluation-table {
     font-size: 80%;
   }
 }
+
+/* class-only */
+.cb-text-box {
+  border-radius: 20px;
+  padding: calc(30px - 18px) 30px;
+  background: linear-gradient(150deg, transparentize($cb-blue, 0.85) 0%, transparent 40%);
+  border-left: 3px solid $cb-blue;
+  &.large {
+    background: linear-gradient(100deg, transparentize($cb-blue, 0.85) 0%, transparent 40%);
+  }
+}
