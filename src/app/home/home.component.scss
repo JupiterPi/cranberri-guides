@@ -1,0 +1,9 @@
+@import "../components/cb-styles";
+
+a {
+  color: $cb-blue;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

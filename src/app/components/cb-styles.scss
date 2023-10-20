@@ -1,0 +1,106 @@
+$cb-black: #151515;
+$cb-blue: #2873ff;
+$cb-red: #cc3e3e;
+
+$font-size-title: 24px;
+$font-size-text: 18px;
+
+* {
+  font-family: 'Inter', sans-serif;
+  font-size: $font-size-text;
+}
+
+p, li {
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.cb-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .cb-header-title {
+    font-size: $font-size-title;
+  }
+
+  margin-bottom: 60px;
+}
+
+.cb-logo {
+  background-color: $cb-black;
+  border-radius: 10px;
+  padding: 15px;
+
+  display: flex;
+  gap: 15px;
+
+  /*!* quick fix for black box shrinking on smaller screens *!
+  width: 161px;*/
+
+  img {
+    height: 40px;
+    width: 40px;
+  }
+
+  div {
+    color: white;
+    font-size: $font-size-title;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.cb-chapter {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .cb-chapter-square {
+    height: 70px;
+    width: 70px;
+    background-color: $cb-blue;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: $font-size-title;
+    font-weight: 400;
+  }
+
+  .cb-chapter-text {
+    font-size: $font-size-title;
+  }
+
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.cb-code {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+
+  &.blue {
+    background-color: transparentize($cb-blue, 0.5);
+  }
+  &.grey {
+    background-color: transparentize(grey, 0.5);
+  }
+}
+
+.cb-warn {
+  display: inline-block;
+  color: $cb-red;
+  font-weight: 900;
+}
+
+.cb-muted {
+  display: inline-block;
+  color: grey;
+}
+
+img {
+  width: 100%;
+}

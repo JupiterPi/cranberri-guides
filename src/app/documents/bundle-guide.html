@@ -1,0 +1,57 @@
+<cb-header>Bundle: Einführung & Benutzungsanweisung</cb-header>
+
+
+<cb-chapter [ordinal]="1">Installation</cb-chapter>
+
+<ol>
+  <li>Erstelle in deinem Homeverzeichnis einen neuen Ordner, z. B. <cb-code color="blue">H:\Dokumente\Cranberri</cb-code>.</li>
+  <li>Navigiere im Dateiexplorer zu <cb-code color="blue">T:\...\Cranberri</cb-code> (im Tauschordner) und <i>kopiere</i> die beiden Verknüpfung-Dateien <cb-code color="blue">Start Cranberri</cb-code>, <cb-code color="blue">Start Minecraft</cb-code> und <cb-code color="blue">Start VS Code</cb-code> in den neu erstellten Ordner in deinem Homeverzeichnis.</li>
+</ol>
+
+
+<cb-chapter [ordinal]="2">Cranberri starten</cb-chapter>
+
+<ol>
+  <li>Doppelklicke auf die Verknüpfung <cb-code color="blue">Start Cranberri</cb-code>.<br><cb-warn>!</cb-warn> Achtung: Es dauert kurz, bis Cranberri startet. Versuche nicht, mehrfach zu klicken.</li>
+  <li>Wähle links die Welt aus, die du starten möchtest, oder klicke auf "+ New World".</li>
+  <li>Klicke oben auf “Start Server”, um Cranberri zu starten. Das Konsolenfenster, das sich öffnet, ist dein Server, schließe es nicht.</li>
+  <li>Du kannst Welten außerdem benennen, indem du sie auswählst und auf "Rename" klickst, danach "Confirm".</li>
+</ol>
+
+
+<cb-chapter [ordinal]="3">Minecraft starten</cb-chapter>
+
+<ol>
+  <li>Doppelklicke auf die Verknüpfung <cb-code color="blue">Start Minecraft</cb-code>.<br><cb-warn>!</cb-warn> Achtung: Es dauert kurz, bis Minecraft startet. Versuche nicht, mehrfach zu klicken.</li>
+  <li>Klicke, sobald Minecraft sich vollständig geöffnet hat, auf “Mehrspieler” und doppelklicke dann auf “Cranberri”, um die Welt zu öffnen.</li>
+</ol>
+
+
+<cb-chapter [ordinal]="4">Projekte erstellen und bearbeiten</cb-chapter>
+
+<ol>
+  <li>Klicke, um ein Projekt zu erstellen, im Cranberri GUI neben "Projects" auf "Create". Gib deinem Projekt einen Namen (keine Leerzeichen) und wähle über die Umschaltbuttons "simple" und Java (<!--TODO java icon-->). "Create" zum Abschließen.</li>
+  <li>Doppelklicke auf die Verknüpfung <cb-code color="blue">Start VS Code</cb-code>.<br><cb-warn>!</cb-warn> Achtung: Es dauert kurz, bis VS Code startet. Versuche nicht, mehrfach zu klicken. Sobald VS Code erscheint, kannst du das Konsolenfenster schließen. <cb-muted>Installiere keine Extensions in VS Code.</cb-muted></li>
+  <li>Klicke nun links auf den Namen deines Projekts, um den Ordner zu öffnen. Hier findest du den Ordner <cb-code color="blue">scripts</cb-code>, in dem du ein Beispielprogramm <cb-code color="blue">script.java</cb-code> findest. Doppelklicke darauf, um es zu öffnen.</li>
+  <li style="color: grey"><cb-muted>Fahre mit dem nächsten Kapitel fort, wenn dein Programm fertig ist.</cb-muted></li>
+</ol>
+
+<img src="assets/bundle-guide/abb-projekt-in-vs-code.png">
+
+
+<cb-chapter [ordinal]="5">Cranberri-Computer platzieren und ausführen</cb-chapter>
+
+<p>Es ist vorausgesetzt: Du hast ein Projekt erstellt.</p>
+
+<ol>
+  <li>Öffne die Cranberri-Welt in Minecraft.</li>
+  <li>Erhalte einen Cranberri-Computer, indem du <cb-code color="grey">T</cb-code> drückst und den Befehl <cb-code color="blue">/cb</cb-code> ausführst. Platziere ihn auf einem passenden Block, z. B. Grasblock.</li>
+  <li>Rechtsklicke den Computer, klicke dann auf das Buch ("Script..."). Gib dann das Skript an, das du ausführen möchtest: <cb-code color="blue">&lt;Projektname&gt;:&lt;Skriptname&gt;</cb-code>, z. B. <cb-code color="blue">my_project:script</cb-code>. Klicke das Buch rechts ("Confirm"), um den Dialog zu schließen, und drücke anschließend <cb-code color="grey">Esc</cb-code>.</li>
+  <li>Platziere an der Seite des Computers eine Reihe von Glasblöcken in eine Richtung. Das ist die Basis für alle Pins am Computer.</li>
+  <li>Platziere für jeden Pin einen Redstone-Repeater an einen der Glasblöcke. Die Pins sind vom Computer ausgehend "1" und aufsteigend nummeriert. Platziere Input-Pins so, dass das Ende des Repeaters, an dem sich zwei Redstone-Fackeln befinden, in den Glasblock zeigt. Bei Output-Pins zeigt der Repeater aus dem Glasblock heraus.</li>
+  <li>Schließe Redstone-Komponenten an die Pins an. <br>-> Baue bspw. die abgebildete Schaltung, wenn du das generierte Einstiegsprojekt/-skript generiert hast.</li>
+  <li>Rechtsklicke erneut auf den Computer und klicke dann auf die noch weißen Wolle ("Off"), um den Computer zu aktivieren und das Skript zu starten. Die Wolle ist nun grün und zeigt "On". Verlasse den Dialog (<cb-code color="grey">Esc</cb-code>).</li>
+  <li>Nach wenigen Sekunden ist der Computer einsatzbereit und im Chat ist "Starting" zu lesen. </li>
+</ol>
+
+<img src="assets/bundle-guide/abb-aufbau-beispielprojekt.png">
