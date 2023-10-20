@@ -4,7 +4,7 @@ import {Component, Input} from "@angular/core";
   selector: "cb-header",
   template: `
     <div class="cb-header">
-      <div class="cb-logo">
+      <div class="cb-logo" routerLink="/">
         <img src="assets/cb-logo.png">
         <div>Cranberri</div>
       </div>
