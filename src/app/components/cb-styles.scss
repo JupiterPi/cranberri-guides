@@ -90,12 +90,14 @@ p, li {
   }
 }
 
+/* class-only */
 .cb-warn {
   display: inline-block;
   color: $cb-red;
   font-weight: 900;
 }
 
+/* class-only */
 .cb-muted {
   display: inline-block;
   color: grey;
@@ -103,4 +105,83 @@ p, li {
 
 img {
   width: 100%;
+}
+
+/* class-only */
+.cb-handwrite-space {
+  display: inline-block;
+  height: $font-size-text;
+  width: 200px;
+  border-bottom: 2px solid $cb-black;
+  position: relative;
+  top: 4px;
+
+  &.small {
+    width: 100px;
+  }
+}
+
+/* class-only */
+.cb-spacer {
+  display: inline-block;
+  width: 50px;
+}
+
+/* class-only */
+.cb-checkbox {
+  display: inline-block;
+  height: $font-size-text;
+  width: $font-size-text;
+  border-radius: 5px;
+  border: 2px solid desaturate($cb-blue, 25%);
+  position: relative;
+  top: 4px;
+  margin: 0 2px;
+}
+
+.cb-evaluation-table-header {
+  width: 100%;
+  height: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  .header-cell {
+    font-weight: 600;
+    width: 40px;
+    height: 100px;
+
+    rotate: 180deg;
+    text-align: start;
+    writing-mode: vertical-rl;
+
+    display: flex;
+    align-items: center;
+
+    div {
+      transform-origin: top center;
+      rotate: 30deg;
+      translate: 3px 15px;
+    }
+  }
+}
+table.cb-evaluation-table {
+  border-collapse: collapse;
+  width: 100%;
+
+  td, th {
+    border: 1px solid transparentize($cb-black, 0.6);
+    padding: 10px;
+  }
+  td {
+    border-left: none;
+  }
+
+  td.tick {
+    width: calc(40px - 2 * 10px - 1px);
+  }
+
+  .space {
+    height: 50px;
+  }
 }

@@ -19,14 +19,14 @@ export class CbHeader {}
   template: `
     <div class="cb-chapter">
       <div class="cb-chapter-square">
-        {{ordinal}}.
+        {{ordinal}}
       </div>
       <div class="cb-chapter-text"><ng-content></ng-content></div>
     </div>
   `
 })
 export class CbChapter {
-  @Input("ordinal") ordinal?: number;
+  @Input("ordinal") ordinal?: string;
 }
 
 @Component({
@@ -45,13 +45,33 @@ export class CbCode {
 }
 
 @Component({
-  selector: "cb-warn",
-  template: `<div class="cb-warn"><ng-content></ng-content></div>`
+  selector: "cb-evaluation-table",
+  template: `
+    <div class="cb-evaluation-table-header">
+      <div *ngFor="let option of options" class="header-cell">
+        <div>{{option}}</div>
+      </div>
+    </div>
+    <table class="cb-evaluation-table">
+      <tr *ngFor="let question of questions">
+        <td>
+          {{getQuestionText(question)}}
+          <div class="space" *ngIf="getQuestionSpace(question)"></div>
+        </td>
+        <td *ngFor="let option of options" class="tick"></td>
+      </tr>
+    </table>
+  `
 })
-export class CbWarn {}
+export class CbEvaluationTable {
+  @Input("questions") questions: string[] = [];
+  @Input("options") options: string[] = [];
 
-@Component({
-  selector: "cb-muted",
-  template: `<div class="cb-muted"><ng-content></ng-content></div>`
-})
-export class CbMuted {}
+  getQuestionText(question: string) {
+    return question.endsWith("___") ? question.substring(0, question.length - 3) : question;
+  }
+
+  getQuestionSpace(question: string) {
+    return question.endsWith("___");
+  }
+}

@@ -1,6 +1,11 @@
 import {Component} from "@angular/core";
 
 @Component({
-  templateUrl: "documents/bundle-guide.html"
+  templateUrl: "documents/bundle-einfuehrung-und-benutzungsanweisung.html"
 })
-export class DocBundleGuide {}
+export class DocBundleEinfuehrungUndBenutzungsanweisung {}
+
+@Component({
+  templateUrl: "documents/lehrbogen-evaluation.html"
+})
+export class DocLehrbogenEvaluation {}

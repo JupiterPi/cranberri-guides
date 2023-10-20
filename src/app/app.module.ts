@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {CbChapter, CbCode, CbHeader, CbMuted, CbWarn} from "./components/cb-components";
-import {DocBundleGuide} from "./documents";
+import {CbChapter, CbCode, CbEvaluationTable, CbHeader} from "./components/cb-components";
+import {DocBundleEinfuehrungUndBenutzungsanweisung, DocLehrbogenEvaluation} from "./documents";
 import {RouterModule} from "@angular/router";
 import {HomeComponent} from './home/home.component';
 
@@ -15,16 +15,17 @@ import {HomeComponent} from './home/home.component';
     CbHeader,
     CbChapter,
     CbCode,
-    CbWarn,
-    CbMuted,
+    CbEvaluationTable,
 
-    DocBundleGuide,
+    DocBundleEinfuehrungUndBenutzungsanweisung,
+    DocLehrbogenEvaluation,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
-      { path: "bundle-einfuehrung-und-benutzungsanweisung", component: DocBundleGuide },
+      { path: "bundle-einfuehrung-und-benutzungsanweisung", component: DocBundleEinfuehrungUndBenutzungsanweisung },
+      { path: "lehrbogen-evaluation", component: DocLehrbogenEvaluation },
     ])
   ],
   providers: [],
