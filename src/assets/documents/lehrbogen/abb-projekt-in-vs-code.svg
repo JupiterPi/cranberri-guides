@@ -67,7 +67,10 @@
        id="image1"
        x="313.68234"
        y="-84.62056"
-       clip-path="url(#clipPath10)" /><g
+       clip-path="url(#clipPath10)"
+       inkscape:export-filename="abb-projekt-in-vs-code.png"
+       inkscape:export-xdpi="77.68"
+       inkscape:export-ydpi="77.68" /><g
        id="g2"
        transform="translate(-27.321351,89.4161)"><rect
          style="fill:#2873ff;fill-opacity:1;stroke-width:1.25917;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:55.3701;paint-order:markers stroke fill"

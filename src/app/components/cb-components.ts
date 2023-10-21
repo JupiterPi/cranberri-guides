@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, ContentChild, Input, OnInit} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 
 @Component({
@@ -104,3 +104,25 @@ export class CbEvaluationTable {
   `
 })
 export class CbImageDot {}
+
+@Component({
+  selector: "cb-badge",
+  template: `
+    <div class="cb-badge">
+      <img [src]="getImage()">
+      <div>{{getText()}}</div>
+    </div>
+  `
+})
+export class CbBadge {
+  @Input("badge") badge?: "minecraft" | "java";
+
+  getImage() {
+    return `assets/badges/${this.badge}.png`;
+  }
+
+  getText() {
+    if (this.badge == undefined) return "";
+    return this.badge.substring(0, 1).toUpperCase() + this.badge.substring(1, this.badge.length);
+  }
+}
