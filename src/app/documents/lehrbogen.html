@@ -268,7 +268,7 @@
 <div class="cb-text-box large">
   <cb-badge badge="java"></cb-badge>
   <p>
-    <b>Verzweigungen</b> findet man auch in den meisten Programmiersprachen, und sie sind eine der grundlegendsten Werkzeuge, um den Programmablauf zu bestimmen. Die einfachste Form der Verzweigung ist eine <cb-code>if</cb-code>-Verzweigung der Form <cb-code>if (&lt;Bedingung&gt;) {{"{"}} &lt;Befehle&gt; }</cb-code>. Sie bedeutet, dass die Befehle innerhalb der geschweiften Klammern (<cb-code>{{"{"}}</cb-code>, <cb-code>}</cb-code>) nur ausgeführt werden, wenn die Bedingung zutrifft.
+    <b>Verzweigungen</b> findet man auch in den meisten Programmiersprachen, und sie sind eine der grundlegendsten Werkzeuge, um den Programmablauf zu bestimmen. Die einfachste Form der Verzweigung ist eine <cb-code>if</cb-code>-Verzweigung der Form <cb-code>if (&lt;Bedingung&gt;) {{"{"}} &lt;Befehle&gt; }</cb-code> ("if" für engl. "falls"). Sie bedeutet, dass die Befehle innerhalb der geschweiften Klammern (<cb-code>{{"{"}}</cb-code>, <cb-code>}</cb-code>) nur ausgeführt werden, wenn die Bedingung zutrifft.
   </p>
   <p>
     Die Bedingung kann z. B. ein Vergleich zwischen zwei Zahlen sein, wie etwa <cb-code>&lt;</cb-code>, <cb-code>&gt;</cb-code> oder <cb-code>==</cb-code>. Wie du siehst, wird Gleichheit durch zwei <cb-code>=</cb-code> ausgedrückt, um es von einer Wertzuweisung einer Variable zu unterscheiden.
@@ -299,6 +299,82 @@
 </div>
 
 
+<cb-chapter ordinal="4">Knöpfchen drücken</cb-chapter>
+
+<h2 class="no-space">Schaltung</h2>
+
+<p>
+  Deine neue Aufgabe ist ein Programm, das die Bedienung der Lampe mit einem Knopf steuert. Drückt man auf den Knopf, soll die Lampe angehen. Drückt man nochmal darauf, soll sie wieder ausgehen.
+</p>
+<p>
+  Erweitere dafür zuerst deine Schaltung um einen Knopf, der an Pin 2 angeschlossen ist. Da das jetzt ein Pin ist, an dem ein Signal vom Computer eingelesen werden soll, muss der Verstärker in den Glasblock zeigen.
+</p>
+<img src="assets/documents/lehrbogen/abb-versuch3-schaltung.png">
+<p></p>
+<div class="cb-text-box">
+  <cb-badge badge="minecraft"></cb-badge>
+  <p>
+    Ein Redstone-Knopf aktiviert angrenzende Redstone-Kabel (oder in diesem Fall Verstärker), sobald man ihn drückt (rechtsklickt). Eine kurze Zeit nach dem Drücken wird das Signal wieder deaktviert.
+  </p>
+</div>
+
+<h2>Programmentwurf</h2>
+
+<p>
+  Zu verstehen, was bei dieser Aufgabe wann wie geschaltet werden soll, ist nicht ganz einfach. Sieh dir dazu dieses Schaubild an:
+</p>
+<img src="assets/documents/lehrbogen/abb-versuch3-ablauf.png">
+<p>
+  Wie du siehst ist der Moment, in dem der Knopf gedrückt wird, dadurch erkennbar, dass das Signal an Pin 2 von <cb-code>LOW</cb-code> auf <cb-code>HIGH</cb-code> wechselt. In diesem Moment soll dann das Signal an Pin 1 umgekehrt werden: Die Lampe soll angeschaltet werden, wenn sie bisher aus war, und andersherum.
+</p>
+<p>
+  Da das Programm nicht in die Vergangenheit schauen kann, brauchst du zwei Variablen, um dir den letzten Zustand zu merken: In <cb-code>letztesSignal</cb-code> soll das letzte eingelesene Signal an Pin 2 gespeichert sein, in <cb-code>lampe</cb-code> soll sich das Programm den aktuellen Zustand der Lampe speichern (damit es ihn dann umschalten kann). Da beide Variablen Redstone-Signale darstellen, verwenden wir für sie den Typ <cb-code>PinValue</cb-code>:
+</p>
+<cb-code src="assets/documents/lehrbogen/listing-pin-value.java"></cb-code>
+
+<p>
+  Bevor wir das Programm weiter implementieren, legen wir den Programmablauf fest:
+</p>
+<img src="assets/documents/lehrbogen/abb-versuch3-algorithmus.png" class="small">
+
+<p>
+  Zum Einlesen des anliegenden Signals an einem Pin brauchst du den Befehl <cb-code>readPin(&lt;Pin&gt;)</cb-code>, der einen Wert vom Typ <cb-code>PinValue</cb-code> zurückgibt.
+</p>
+<div class="cb-text-box large">
+  <cb-badge badge="java"></cb-badge>
+  <p>
+    Zum Programmieren unserer komplexeren Bedingung, bei der wir zwei Bedingungen verknüpfen, brauchen wir den Und-Operator <cb-code>&&</cb-code>. Die Bedingung ist dann nur erfüllt, wenn beide Teilbedingungen erfüllt sind.
+  </p>
+  <p>
+    Um die Verzweigungen "Lampe an?" und "Lampe aus?" zu vereinfachen verwenden wir eine erweitere <cb-code>if</cb-code>-Verzweigung der Form <cb-code>if (&lt;Bedingung&gt;) {{"{"}} ... } else {{"{"}} ... }</cb-code> ("else" für engl. "sonst"). Die Befehle in den geschwungenen Klammern werden dann jeweils nur dann ausgeführt, wenn die Bedingung zutrifft bzw. nicht zutrifft.
+  </p>
+</div>
+<p>
+  Damit kannst du nun bereits das fertige Programm schreiben, das genau dem oben gezeigten Ablauf nach funktioniert:
+</p>
+<cb-code src="assets/documents/lehrbogen/listing-versuch3-final.java"></cb-code>
+<p>
+  <b>Herzlichen Glückwunsch!</b> Du kannst den Cranberri-Computer jetzt neu starten, um das neue Programm zu testen. Die Lampe sollte wie erwartet angeschaltet werden, wenn du den Knopf betätigst, und wieder ausgehen, wenn du erneut drückst.
+</p>
+
+<div class="cb-text-box black">
+  <h2>Übungsaufgabe</h2>
+  <p>
+    Entwerfe eine Schaltung und ein Programm, das mit zwei Knöpfen arbeitet. Einer schaltet die Lampe an, der andere schaltet sie aus.
+  </p>
+  <cb-collapsable label="Lösung">
+    <p>
+      Die Schaltung kann wie folgt aussehen (für ein wenig Abwechslung sind hier die Knöpfe auf Pins 1 & 2 und die Lampe auf Pin 3):
+    </p>
+    <img src="assets/documents/lehrbogen/abb3-versuch3-aufgabe-schaltung.png">
+    <p>
+      Das Programm dazu:
+    </p>
+    <cb-code src="assets/documents/lehrbogen/listing-versuch3-aufgabe-loesung.java"></cb-code>
+  </cb-collapsable>
+</div>
+
+
 <cb-chapter ordinal="->">Weiterführend</cb-chapter>
 
 <p>
@@ -308,4 +384,7 @@
 </p>
 <p>
   Vielen Dank für dein Interesse!
+</p>
+<p>
+  <span class="cb-muted">Über Feedback freue ich mich immer.</span>
 </p>
