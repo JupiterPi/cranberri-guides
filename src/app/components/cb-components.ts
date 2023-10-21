@@ -56,7 +56,6 @@ export class CbCode implements OnInit {
   ngOnInit() {
     if (this.source != undefined) {
       this.http.get(this.source, {responseType: "text"}).subscribe(text => {
-        console.log(text.split(/\n/));
         return this.sourceLines = text.split("\n");
       });
     }
@@ -124,5 +123,21 @@ export class CbBadge {
   getText() {
     if (this.badge == undefined) return "";
     return this.badge.substring(0, 1).toUpperCase() + this.badge.substring(1, this.badge.length);
+  }
+}
+
+@Component({
+  selector: "cb-footnote",
+  template: `
+    <div class="cb-footnote" (click)="show()">
+      <div>*</div>
+    </div>
+  `
+})
+export class CbFootnote {
+  @Input("text") text?: string;
+
+  show() {
+    alert(this.text);
   }
 }

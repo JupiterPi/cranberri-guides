@@ -2,7 +2,15 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {CbBadge, CbChapter, CbCode, CbEvaluationTable, CbHeader, CbImageDot} from "./components/cb-components";
+import {
+  CbBadge,
+  CbChapter,
+  CbCode,
+  CbEvaluationTable,
+  CbFootnote,
+  CbHeader,
+  CbImageDot
+} from "./components/cb-components";
 import {DocBundleEinfuehrungUndBenutzungsanweisung, DocLehrbogen, DocLehrbogenEvaluation} from "./documents";
 import {RouterModule} from "@angular/router";
 import {HomeComponent} from './home/home.component';
@@ -19,6 +27,7 @@ import {HttpClientModule} from "@angular/common/http";
     CbEvaluationTable,
     CbImageDot,
     CbBadge,
+    CbFootnote,
 
     DocBundleEinfuehrungUndBenutzungsanweisung,
     DocLehrbogen,

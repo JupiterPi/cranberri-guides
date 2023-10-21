@@ -1,5 +1,22 @@
 <cb-header>Lehrbogen</cb-header>
 
+<h2>Wie du mit diesen Lehrbogen arbeitest</h2>
+<p>
+  Du findest in den folgenden Kapiteln immer wieder Kästen, die speziell markiert sind, zum Beispiel:
+</p>
+<div class="cb-text-box">
+  <cb-badge badge="minecraft"></cb-badge>
+  <p>
+    Diesen Kasten solltest du lesen, wenn du nicht mit Minecraft vertraut bist. Wenn du dich mit Minecraft gut auskennst, kannst du ihn auch überspringen.
+  </p>
+</div>
+<p>
+  Genauso gibt es Kästen mit "Java", die du lesen solltest, wenn du die Programmiersprache Java noch nicht kennst. So kannst du auswählen, welche Informationen für dich neu sind, und was du bereits weißt.
+</p>
+<p>
+  Viel Spaß!
+</p>
+
 
 <cb-chapter ordinal="1">Vorbereitung</cb-chapter>
 
@@ -8,12 +25,12 @@
     Für <b>Bundle-Nutzer</b>:
   </p>
   <p>
-    Befolge die Schritte entsprechend <a routerLink="/bundle-einfuehrung-und-benutzungsanweisung">Cranberri Bundle: Einführung & Benutzungsanweisung</a>, um ein Projekt zu erstellen und VS Code zu öffnen.
+    Befolge die Schritte 1, 2 (nur 1.) und 4 (1.-2.) in <a routerLink="/bundle-einfuehrung-und-benutzungsanweisung">Cranberri Bundle: Einführung & Benutzungsanweisung</a>, um ein Projekt zu erstellen und VS Code zu öffnen.
   </p>
 </div>
 
 <p>
-  Erstelle ein neues Projekt und öffne es in VS Code.
+  Erstelle ein neues Projekt, benenne es "programm1" und öffne es in VS Code.
   Auf der linken Seite <cb-img-dot>1</cb-img-dot> findest du die Dateien, die dein Projekt umfasst.
   <cb-code>project.yaml</cb-code> und alles in <cb-code>lib</cb-code> ist für dich vorerst uninteressant.
 </p>
@@ -38,15 +55,112 @@
 </p>
 
 
-<cb-chapter ordinal="2">Versuch: Es werde Licht!</cb-chapter>
+<cb-chapter ordinal="2">Es werde Licht!</cb-chapter>
 
 <div class="cb-text-box">
-  <cb-badge badge="minecraft"></cb-badge>
   <p>
-    Befolge die Schritte entsprechend <a routerLink="/bundle-einfuehrung-und-benutzungsanweisung">Cranberri Bundle: Einführung & Benutzungsanweisung</a>, um ein Projekt zu erstellen und VS Code zu öffnen.
+    Für <b>Bundle-Nutzer</b>:
+  </p>
+  <p>
+    Befolge die Schritte 2 (2.-3.) und 3 in <a routerLink="/bundle-einfuehrung-und-benutzungsanweisung">Cranberri Bundle: Einführung & Benutzungsanweisung</a>, um den Server mit einer neuen Welt zu starten und die Welt in Minecraft zu öffnen.
   </p>
 </div>
 
 <p>
-  <span class="cb-muted">...</span>
+  Starte den Server mit einer neuen Welt und öffne sie in Minecraft.
+</p>
+
+<div class="cb-text-box large">
+  <cb-badge badge="minecraft"></cb-badge>
+  <p>
+    In Minecraft brauchst du die folgenden Tasten, um das Spiel zu steuern:
+  </p>
+  <ul>
+    <li><cb-code color="grey">W</cb-code>, <cb-code color="grey">A</cb-code>, <cb-code color="grey">S</cb-code> und <cb-code color="grey">D</cb-code> zum vorwärts, links, rückwärts und rechts bewegen.</li>
+    <li><cb-code color="grey">Leertaste</cb-code> zum Hüpfen. Doppeltippen darauf, um im Kreativmodus zu fliegen.</li>
+    <li>Bewege deine Maus, um dich umzusehen.</li>
+    <li>Linke Maustaste zum Zerstören, rechte Maustaste zum Platzieren von Blöcken.</li>
+    <li>Bewege das Mausrad oder verwende die Tasten <cb-code color="grey">1</cb-code> bis <cb-code color="grey">9</cb-code>, um verschiedene Items in deiner Hotbar auszuwählen.</li>
+    <li>Drücke <cb-code color="grey">E</cb-code>, um dein Inventar zu öffnen. Hier kannst du (im Kreativmodus) beliebige Items nehmen und in deiner Hotbar ablegen.</li>
+    <li>Drücke <cb-code color="grey">T</cb-code> zum Öffnen des Chats. Hier kannst du Befehle eingeben und mit <cb-code color="grey">Enter</cb-code> ausführen.</li>
+  </ul>
+  <p>
+    Führe den den Befehl <cb-code>/gamemode creative</cb-code> aus, um den Kreativmodus zu aktivieren. Damit bist du unverwundbar, hast Zugriff auf beliebige Items und kannst fliegen.
+  </p>
+</div>
+
+<p>
+  Finde im Kreativmodus eine schöne freie Fläche, auf der du arbeiten kannst. Führe dann den Befehl <cb-code>/cb</cb-code> aus, um einen Cranberri-Computer zu erhalten.
+</p>
+<ol>
+  <li>Platziere ihn auf einem passenden Block, z. B. Grasblock.</li>
+  <li>Platziere nun an der Seite des Computers eine Reihe von ca. 2 Glasblöcken in eine beliebige Richtung. Das ist die Basis für alle Pins am Computer. Pins sind die Stellen, an denen Redstone-Komponenten wie Lampen, Schalter etc. an den Computer angeschlossen werden können.</li>
+  <li>Platziere an einen der Glasblöcke einen Redstone-Verstärker, der vom Glasblock wegzeigt. Das ist nun Pin 1.</li>
+  <li>Setze daran einen weiteren Verstärker<cb-footnote text="Das hat einen Bug zur Ursache, durch den die Leitung sonst flackert. Bis dieser behoben ist, ist das das einfachste Workaround."></cb-footnote> und verbinde mit einem Redstone-Staub eine Redstone-Lampe.</li>
+</ol>
+<p>
+  Die Schaltung sollte jetzt so aussehen:
+</p>
+
+<img src="assets/documents/lehrbogen/abb-versuch1-schaltung.png">
+<p></p>
+
+<div class="cb-text-box large">
+  <cb-badge badge="minecraft"></cb-badge>
+  <p>
+    Redstone ist eine sehr vielseitige Spielmechanik von Minecraft, die ähnlich funktioniert wie Elektronik in der Realität. Man kann damit alles bauen von einer simplen Schaltung um eine Lampe zu steuern bis hin zu riesigen funktionierenden Computern. Für Cranberri brauchst du lediglich die Grundlagen, die mit diesem Beispiel gut erklärt sind:
+  </p>
+  <img src="assets/documents/lehrbogen/abb-grundlagen-redstone.png" class="small">
+  <p>
+    Rechts siehst du eine Redstone-Fackel <cb-img-dot>1</cb-img-dot>, die als Energiequelle dient. Hier wird der "Strom" über ein Redstone-Kabel bzw. Redstone-Staub <cb-img-dot>2</cb-img-dot> übertragen. Die Redstone-Lampe <cb-img-dot>3</cb-img-dot> wird dadurch aktiviert und leuchtet.
+  </p>
+  <p>
+    Links ist die Fackel durch einen Schalter <cb-img-dot>4</cb-img-dot> ersetzt. Du siehst ihn im deaktivierten und im aktivierten <cb-img-dot>5</cb-img-dot> Zustand. Mit einem Rechtsklick kannst du ihn umschalten.
+  </p>
+  <p>
+    Der Redstone-Verstärker dient normalerweise zur Verstärkung von Strom, für Cranberri wird er aber einfach als Stromquelle eingesetzt, die vom Computer gesteuert wird.
+  </p>
+</div>
+
+<p>
+  Jetzt geht es an das Schreiben deines ersten Programms. Gehe dazu wieder zurück in VS Code (mit <cb-code color="grey">Esc</cb-code> bekommst du deinen Mauszeiger zurück) und öffne wieder dein Programm <cb-code>script.java</cb-code>, das von 1. noch leer sein sollte.
+</p>
+<p>
+  Das Ziel deiner ersten Schaltung ist es, die Redstone-Lampe beim Start des Computers anzuschalten. Dazu brauchst du den Befehl <cb-code>writePin(&lt;Pin&gt;, &lt;Wert&gt;)</cb-code>. Dieser setzt den angegebenen Pin auf den angegebenen Wert. Du hast deine Lampe an Pin 1 angeschlossen und willst sie anschalten, der Befehl lautet also: <cb-code>writePin(1, HIGH)</cb-code>, dabei steht "HIGH" für "an" ("LOW" wäre "aus"). Das soll einmalig beim Start des Computers passieren, also bei <cb-code>setup()</cb-code>. Da nichts immer wieder passieren soll, kannst du <cb-code>tick()</cb-code> löschen. Das fertig Programm sieht jetzt so aus:
+</p>
+
+<cb-code src="assets/documents/lehrbogen/listing-lampe-anschalten.java"></cb-code>
+
+<p></p>
+
+<div class="cb-text-box large">
+  <cb-badge badge="java"></cb-badge>
+  <p>
+    Die Cranberri-Programme sind in der Programmiersprache Java geschrieben. Hier eine kleine Erläuterung der Grundlagen:
+  </p>
+  <p>
+    Die Funktionsdefinitionen <cb-code>void setup() {{"{"}} ... }</cb-code> und <cb-code>void tick() {{"{"}} ... }</cb-code> sind wie Überschriften, die dein Programm in logisch zusammenhängende Abschnitte einteilen.
+  </p>
+  <p>
+    Befehle wie <cb-code>writePin(1, HIGH);</cb-code> werden meist Zeile für Zeile untereinander geschrieben. Sie enden in Java <i>immer</i> mit einem Semikolon <cb-code>;</cb-code>!
+  </p>
+</div>
+
+<p>
+  Als letztes musst du das Programm nur noch auf den Cranberri-Computer übertragen und ausführen.
+</p>
+<ol>
+  <li>Gehe dazu zurück in Minecraft und rechtsklicke den Computer-Block.</li>
+  <li>Klicke auf das Buch ("Skript...") und gib im Textfeld dein Skript an nach dem Format <cb-code>&lt;Projektname&gt;:&lt;Skriptname&gt;</cb-code>, in diesem Fall also <cb-code>programm1:script</cb-code>.</li>
+  <li>Klicke das Buch rechts ("Confirm"), um deine Angabe zu bestätigen und den Dialog zu schließen.</li>
+  <li>Klicke nun auf die noch weißen Wolle ("Off"), um den Computer zu aktivieren und das Skript zu starten. Die Wolle ist nun grün und zeigt "On". Verlasse den Dialog (<cb-code color="grey">Esc</cb-code>).</li>
+</ol>
+<p>
+  Nach wenigen Sekunden sollte der Computer bereit sein und starten. Im Chat ist dann "Starting" zu lesen. Der Pin leuchtet rot auf, da er aktiviert ist, und die Lampe leuchtet.
+</p>
+
+<img src="assets/documents/lehrbogen/abb-versuch1-computer-gestartet.png">
+
+<p>
+  <b>Herzlichen Glückwunsch!</b> Du hast erfolgreich dein erstes Programm und deine erste Schaltung erstellt und die Lampe zum Leuchten gebracht.
 </p>
