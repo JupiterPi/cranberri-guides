@@ -32,6 +32,9 @@ a {
 h2 {
   font-weight: 600;
   font-size: $font-size-header;
+  &:not(.no-space) {
+    margin-top: 40px;
+  }
 }
 
 li {
@@ -143,10 +146,19 @@ li {
 
 img {
   width: 100%;
+  &:not(.img) {
+    border-radius: 20px;
+  }
   &.small {
     width: 70%;
   }
-  border-radius: 20px;
+  &.extra-small {
+    width: 40%;
+    border-radius: 10px;
+  }
+  &.extra-small-regular {
+    width: 40%;
+  }
 }
 
 /* class-only */
@@ -267,6 +279,11 @@ table.cb-evaluation-table {
   }
   :last-child {
     margin-bottom: 0;
+  }
+
+  &.black {
+    background: linear-gradient(100deg, transparentize($cb-black, 0.85) 0%, transparent 40%);
+    border-left: 3px solid $cb-black;
   }
 }
 

@@ -1,6 +1,6 @@
 <cb-header>Lehrbogen</cb-header>
 
-<h2>Wie du mit diesen Lehrbogen arbeitest</h2>
+<h2 class="no-space">Wie du mit diesen Lehrbogen arbeitest</h2>
 <p>
   Du findest in den folgenden Kapiteln immer wieder Kästen, die speziell markiert sind, zum Beispiel:
 </p>
@@ -13,6 +13,15 @@
 <p>
   Genauso gibt es Kästen mit "Java", die du lesen solltest, wenn du die Programmiersprache Java noch nicht kennst. So kannst du auswählen, welche Informationen für dich neu sind, und was du bereits weißt.
 </p>
+<p>
+  Außerdem findest du immer wieder mal:
+</p>
+<div class="cb-text-box black">
+  <b>Übungsaufgaben</b>
+  <p>
+    Diese kannst du bearbeiten, um das Erlernte zu festigen und dich zu testen.
+  </p>
+</div>
 <p>
   Viel Spaß!
 </p>
@@ -56,6 +65,8 @@
 
 
 <cb-chapter ordinal="2">Es werde Licht!</cb-chapter>
+
+<h2 class="no-space">Schaltung</h2>
 
 <div class="cb-text-box">
   <p>
@@ -108,7 +119,7 @@
 <div class="cb-text-box large">
   <cb-badge badge="minecraft"></cb-badge>
   <p>
-    Redstone ist eine sehr vielseitige Spielmechanik von Minecraft, die ähnlich funktioniert wie Elektronik in der Realität. Man kann damit alles bauen von einer simplen Schaltung um eine Lampe zu steuern bis hin zu riesigen funktionierenden Computern. Für Cranberri brauchst du lediglich die Grundlagen, die mit diesem Beispiel gut erklärt sind:
+    <b>Redstone</b> ist eine sehr vielseitige Spielmechanik von Minecraft, die ähnlich funktioniert wie Elektronik in der Realität. Man kann damit alles bauen von einer simplen Schaltung um eine Lampe zu steuern bis hin zu riesigen funktionierenden Computern. Für Cranberri brauchst du lediglich die Grundlagen, die mit diesem Beispiel gut erklärt sind:
   </p>
   <img src="assets/documents/lehrbogen/abb-grundlagen-redstone.png" class="small">
   <p>
@@ -122,6 +133,8 @@
   </p>
 </div>
 
+<h2>Programm</h2>
+
 <p>
   Jetzt geht es an das Schreiben deines ersten Programms. Gehe dazu wieder zurück in VS Code (mit <cb-code color="grey">Esc</cb-code> bekommst du deinen Mauszeiger zurück) und öffne wieder dein Programm <cb-code>script.java</cb-code>, das von 1. noch leer sein sollte.
 </p>
@@ -129,7 +142,7 @@
   Das Ziel deiner ersten Schaltung ist es, die Redstone-Lampe beim Start des Computers anzuschalten. Dazu brauchst du den Befehl <cb-code>writePin(&lt;Pin&gt;, &lt;Wert&gt;)</cb-code>. Dieser setzt den angegebenen Pin auf den angegebenen Wert. Du hast deine Lampe an Pin 1 angeschlossen und willst sie anschalten, der Befehl lautet also: <cb-code>writePin(1, HIGH)</cb-code>, dabei steht "HIGH" für "an" ("LOW" wäre "aus"). Das soll einmalig beim Start des Computers passieren, also bei <cb-code>setup()</cb-code>. Da nichts immer wieder passieren soll, kannst du <cb-code>tick()</cb-code> löschen. Das fertig Programm sieht jetzt so aus:
 </p>
 
-<cb-code src="assets/documents/lehrbogen/listing-lampe-anschalten.java"></cb-code>
+<cb-code src="assets/documents/lehrbogen/listing-versuch1-final.java"></cb-code>
 
 <p></p>
 
@@ -163,4 +176,122 @@
 
 <p>
   <b>Herzlichen Glückwunsch!</b> Du hast erfolgreich dein erstes Programm und deine erste Schaltung erstellt und die Lampe zum Leuchten gebracht.
+</p>
+
+<div class="cb-text-box black">
+  <h2>Übungsaufgabe</h2>
+  <p>
+    Schreibe den Befehl, um in einer hypothetischen Schaltung eine Lampe, die an Pin 2 angeschlossen ist, auszuschalten.
+  </p>
+</div>
+
+
+<cb-chapter ordinal="3">Die Lampe blinkt</cb-chapter>
+
+<h2 class="no-space">Debugging deaktivieren</h2>
+
+<p>
+  Aktuell gibt dein Programm immer, wenn es einen Pin steuert, in der Konsole aus, was es tut:
+</p>
+<img src="assets/documents/lehrbogen/abb-debugging.png" class="extra-small">
+<p>
+  Das ist sehr praktisch, wenn man genau nachprüfen möchte, was das eigene Programm macht, es kann aber auch sehr störend sein, wenn der Computer sehr oft Pins schaltet. Deaktiviere es deshalb vorerst mit dem Befehl <cb-code>disableDebug()</cb-code>. Da das einmalig beim Programmstart passieren soll, rufst du den Befehl am besten in <cb-code>setup()</cb-code> auf. Füge entsprechend den folgenden Programmcode an den Anfang deines Programms ein:
+</p>
+<cb-code src="assets/documents/lehrbogen/listing-disable-debug.java"></cb-code>
+
+<h2>Tick-Zähler</h2>
+
+<p>
+  Deine nächste Aufgabe ist es, ein Programm zu schreiben, das die Lampe in Intervallen von 1s blinken lässt. Da das etwas ist, was nicht nur am Programmstart passieren soll, brauchst du dafür wieder <cb-code>tick()</cb-code>. <cb-code>tick()</cb-code> wird, wie oben bereits beschrieben, in jedem Spieltick ausgeführt, also 20 mal pro Sekunde. Das heißt also, dass die Lampe alle 20 Ticks ihren Zustand ändern soll.
+</p>
+<p>
+  Das Programm muss also wissen, wie viele Ticks seit Programmstart vergangen sind. Dazu brauchen wir eine Variable.
+</p>
+
+<div class="cb-text-box large">
+  <cb-badge badge="java"></cb-badge>
+  <p>
+    <b>Variablen</b> findet man in fast allen Programmiersprachen. Der Computer verwendet sie, um sich Dinge zu marken. Eine Variable hat einen Namen, einen Wert und einen Typ, also die Information, welche Art von Werten sie speichern kann. In Java legt man eine Variable an mit <cb-code>&lt;Typ&gt; &lt;Name&gt; = &lt;Startwert&gt;</cb-code>. Möchte man einer Variable einen neuen Wert zuweisen, lautet der Befehl <cb-code>&lt;Name&gt; = &lt;neuer Wert&gt;</cb-code>. Der Typ einer Variable kann z. B. <cb-code>int</cb-code> sein, also eine Ganzzahl, oder <cb-code>String</cb-code> für Text. Möchte man den Wert einer Variable verwenden, schreibt man einfach den Namen.
+  </p>
+  <p>
+    Im folgenden Beispiel wird eine ganzzahlige Variable mit dem Namen <cb-code>a</cb-code> und dem Startwert 38 erstellt. Anschließend wird der Wert um 4 erhöht, indem der Wert auf die Summe aus dem bisherigen Wert und 4 gesetzt wird.
+  </p>
+  <cb-code src="assets/documents/lehrbogen/listing-variablen.java"></cb-code>
+</div>
+
+<p>
+  Lege also eine Variable <cb-code>ticks</cb-code> an, die als Wert immer die aktuelle Anzahl von Ticks enthalten soll, die nach Programmstart vergangen sind. Da die Variable nicht immer wieder neu angelegt werden soll, sondern während dem ganzen Programmverlauf bestehen, musst du sie außerhalb von <cb-code>tick()</cb-code> anlegen.
+</p>
+<p>
+  Sie soll jetzt bei jedem Aufruf von <cb-code>tick()</cb-code> um 1 hochgezählt werden. Das kannst du lösen, indem du innerhalb von <cb-code>tick()</cb-code> den aktuellen Wert von <cb-code>ticks</cb-code> mit 1 addierst und das Ergebnis als neuen Wert von <cb-code>ticks</cb-code> speicherst. Dieser Teil des Programms sieht jetzt also so aus:
+</p>
+<cb-code src="assets/documents/lehrbogen/listing-ticks.java"></cb-code>
+
+<h2>Lampensteuerung</h2>
+
+<p>
+  Als nächstes muss das Programm auf Grundlage der aktuell vergangenen Spielticks entscheiden können, was es tun muss. Sieh dir dazu dieses Schaubild an:
+</p>
+<img src="assets/documents/lehrbogen/abb-versuch2-ablauf.png">
+<p>
+  Wie du siehst, wiederholt sich die Abfolge nach 20 Ticks. Bei Tick 0 soll die Lampe angeschaltet werden, bei Tick 10 soll sie ausgeschaltet werden. Bei Tick 20 soll sie wieder angeschaltet werden, entsprechend bei 30 wieder aus.
+</p>
+<p>
+  Wir können also erkennen, dass die Lampe geschaltet werden soll, wenn <i>die Division der aktuellen Tickzahl durch 20 den Rest 0 bzw. 10 ergibt</i>.
+</p>
+<p>
+  Beispiele:
+  <br>0 &divide; 20 = 0 Rest <b>0</b> => an
+  <br>10 &divide; 20 = 0 Rest <b>10</b> => aus
+  <br>20 &divide; 20 = 1 Rest <b>0</b> => an
+  <br>30 &divide; 20 = 1 Rest <b>10</b> => aus
+</p>
+<p>
+  In Java drückt man das mit einer Modulo-Operation aus: <cb-code>a % b</cb-code> ergibt den Rest der Division <cb-code>a</cb-code> &divide; <cb-code>b</cb-code>.
+</p>
+<p>
+  Wir können also folgenden Programmablauf festlegen:
+</p>
+<img src="assets/documents/lehrbogen/abb-versuch2-algorithmus.png" class="extra-small-regular">
+<p>
+  Du siehst bereits, dass wir hierfür eine konditionale Verzweigung brauchen. Nur falls eine Bedingung eintritt, soll ein Befehl ausgeführt werden.
+</p>
+
+<div class="cb-text-box large">
+  <cb-badge badge="java"></cb-badge>
+  <p>
+    <b>Verzweigungen</b> findet man auch in den meisten Programmiersprachen, und sie sind eine der grundlegendsten Werkzeuge, um den Programmablauf zu bestimmen. Die einfachste Form der Verzweigung ist eine <cb-code>if</cb-code>-Verzweigung der Form <cb-code>if (&lt;Bedingung&gt;) {{"{"}} &lt;Befehle&gt; }</cb-code>. Sie bedeutet, dass die Befehle innerhalb der geschweiften Klammern (<cb-code>{{"{"}}</cb-code>, <cb-code>}</cb-code>) nur ausgeführt werden, wenn die Bedingung zutrifft.
+  </p>
+  <p>
+    Die Bedingung kann z. B. ein Vergleich zwischen zwei Zahlen sein, wie etwa <cb-code>&lt;</cb-code>, <cb-code>&gt;</cb-code> oder <cb-code>==</cb-code>. Wie du siehst, wird Gleichheit durch zwei <cb-code>=</cb-code> ausgedrückt, um es von einer Wertzuweisung einer Variable zu unterscheiden.
+    <br><span class="cb-warn">!</span> Achtung: In der hier verwendeten Schriftart sieht <cb-code>==</cb-code> aus wie ein besonders langes Gleichheitszeichen, es sind aber zwei! Beachte das auch bei den folgenden Codebeispielen.
+  </p>
+</div>
+
+<p>
+  Zuletzt kannst du jetzt alle Bruchstücke zu einem fertigen Programm verbinden:
+</p>
+<cb-code src="assets/documents/lehrbogen/listing-versuch2-final.java"></cb-code>
+
+<p>
+  <b>Herzlichen Glückwunsch!</b> Du kannst den Cranberri-Computer jetzt neu starten, um das neue Programm zu testen. Die Lampe sollte wie erwartet in Intervallen von 1s blinken.
+</p>
+
+<div class="cb-text-box black">
+  <h2>Übungsaufgabe</h2>
+  <p>
+    Schreibe ein Programm, das die Lampe fortwährend für 1s anschaltet und dann für 2s ausschaltet.
+  </p>
+</div>
+
+
+<cb-chapter ordinal="->">Weiterführend</cb-chapter>
+
+<p>
+  An dieser Stelle ist dieser Lehrbogen vorerst zu Ende.
+  Weitere Cranberri-Materialien findest du <a routerLink="/">hier</a>.
+  Weitere Informationen zu Cranberri findest du <a href="https://github.com/JupiterPi/cranberri">auf der GitHub-Seite</a>.
+</p>
+<p>
+  Vielen Dank für dein Interesse!
 </p>

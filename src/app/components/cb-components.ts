@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
   template: `
     <div class="cb-header">
       <div class="cb-logo" routerLink="/">
-        <img src="assets/cb-logo.png">
+        <img src="assets/cb-logo.png" class="img">
         <div>Cranberri</div>
       </div>
       <div class="cb-header-title"><ng-content></ng-content></div>
