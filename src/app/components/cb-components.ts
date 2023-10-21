@@ -141,3 +141,30 @@ export class CbFootnote {
     alert(this.text);
   }
 }
+
+@Component({
+  selector: "cb-collapsable",
+  template: `
+    <div class="cb-collapsable" [class.collapsed]="collapsed">
+      <ng-container *ngIf="collapsed">
+        <div class="label" (click)="collapsed = false">
+          <div>-></div>
+          {{label}}
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!collapsed">
+        <div class="label" (click)="collapsed = true">
+          <div style="font-size: 15px">&#10006;</div>
+          {{label}}
+        </div>
+        <div class="content">
+          <ng-content></ng-content>
+        </div>
+      </ng-container>
+    </div>
+  `
+})
+export class CbCollapsable {
+  @Input("label") label?: string;
+  collapsed = true;
+}

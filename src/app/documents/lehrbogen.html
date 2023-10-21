@@ -21,6 +21,11 @@
   <p>
     Diese kannst du bearbeiten, um das Erlernte zu festigen und dich zu testen.
   </p>
+  <cb-collapsable label="Lösungen">
+    <p>
+      Hier siehst du dann die Lösungen.
+    </p>
+  </cb-collapsable>
 </div>
 <p>
   Viel Spaß!
@@ -183,6 +188,9 @@
   <p>
     Schreibe den Befehl, um in einer hypothetischen Schaltung eine Lampe, die an Pin 2 angeschlossen ist, auszuschalten.
   </p>
+  <cb-collapsable label="Lösung">
+    <cb-code>writePin(2, LOW);</cb-code>
+  </cb-collapsable>
 </div>
 
 
@@ -202,7 +210,7 @@
 <h2>Tick-Zähler</h2>
 
 <p>
-  Deine nächste Aufgabe ist es, ein Programm zu schreiben, das die Lampe in Intervallen von 1s blinken lässt. Da das etwas ist, was nicht nur am Programmstart passieren soll, brauchst du dafür wieder <cb-code>tick()</cb-code>. <cb-code>tick()</cb-code> wird, wie oben bereits beschrieben, in jedem Spieltick ausgeführt, also 20 mal pro Sekunde. Das heißt also, dass die Lampe alle 20 Ticks ihren Zustand ändern soll.
+  Deine nächste Aufgabe ist es, ein Programm zu schreiben, das die Lampe in Intervallen von einer halben Sekunde blinken lässt. Da das etwas ist, was nicht nur am Programmstart passieren soll, brauchst du dafür wieder <cb-code>tick()</cb-code>. <cb-code>tick()</cb-code> wird, wie oben bereits beschrieben, in jedem Spieltick ausgeführt, also 20 mal pro Sekunde. Das heißt also, dass die Lampe alle 20 Ticks ihren Zustand ändern soll.
 </p>
 <p>
   Das Programm muss also wissen, wie viele Ticks seit Programmstart vergangen sind. Dazu brauchen wir eine Variable.
@@ -274,7 +282,7 @@
 <cb-code src="assets/documents/lehrbogen/listing-versuch2-final.java"></cb-code>
 
 <p>
-  <b>Herzlichen Glückwunsch!</b> Du kannst den Cranberri-Computer jetzt neu starten, um das neue Programm zu testen. Die Lampe sollte wie erwartet in Intervallen von 1s blinken.
+  <b>Herzlichen Glückwunsch!</b> Du kannst den Cranberri-Computer jetzt neu starten, um das neue Programm zu testen. Die Lampe sollte wie erwartet in Intervallen von einer halben Sekunde blinken.
 </p>
 
 <div class="cb-text-box black">
@@ -282,6 +290,12 @@
   <p>
     Schreibe ein Programm, das die Lampe fortwährend für 1s anschaltet und dann für 2s ausschaltet.
   </p>
+  <cb-collapsable label="Lösung">
+    <p>
+      Entsprechend der Aufgabenstellung ist die Dauer der Wiederholung insgesamt 3s, also 60 Ticks. Die Lampe muss also bei 0 Ticks an- und bei 20 Ticks ausgeschaltet werden. Das Programm ist dasselbe wie bisher, nur mit veränderten Zahlenwerten:
+    </p>
+    <cb-code src="assets/documents/lehrbogen/listing-versuch2-aufgabe-loesung.java"></cb-code>
+  </cb-collapsable>
 </div>
 
 

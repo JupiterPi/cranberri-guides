@@ -331,3 +331,29 @@ table.cb-evaluation-table {
     top: 3px;
   }
 }
+
+.cb-collapsable {
+  .label {
+    font-weight: 500;
+    display: flex;
+    gap: 5px;
+
+    color: $cb-blue;
+    cursor: pointer;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 18px;
+    }
+  }
+
+  .content {
+    padding: 18px;
+    margin-top: 18px;
+    background-color: white;
+    border-radius: 10px;
+  }
+}

@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {
   CbBadge,
   CbChapter,
-  CbCode,
+  CbCode, CbCollapsable,
   CbEvaluationTable,
   CbFootnote,
   CbHeader,
@@ -28,6 +28,7 @@ import {HttpClientModule} from "@angular/common/http";
     CbImageDot,
     CbBadge,
     CbFootnote,
+    CbCollapsable,
 
     DocBundleEinfuehrungUndBenutzungsanweisung,
     DocLehrbogen,
