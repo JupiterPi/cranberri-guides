@@ -184,6 +184,11 @@ img {
   &.extra-small-regular {
     width: 40%;
   }
+  &.inline {
+    height: $font-size-text;
+    width: $font-size-text;
+    border-radius: 0;
+  }
 }
 
 /* class-only */
