@@ -1,5 +1,4 @@
-import {Component, ContentChild, Input, OnInit} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {Component, Input} from "@angular/core";
 
 @Component({
   selector: "cb-header",
@@ -36,30 +35,13 @@ export class CbChapter {
     <div class="cb-code"
          [class.blue]="color == 'blue'"
          [class.grey]="color == 'grey'"
-         [class.block]="source != undefined"
     >
-      <ng-container *ngIf="source == undefined">
-        <ng-content></ng-content>
-      </ng-container>
-      <ng-container *ngIf="source != undefined">
-        <pre class="line" *ngFor="let line of sourceLines">{{line}}</pre>
-      </ng-container>
+      <ng-content></ng-content>
     </div>
   `
 })
-export class CbCode implements OnInit {
+export class CbCode {
   @Input("color") color: "none" | "blue" | "grey" = "blue";
-  @Input("src") source?: string;
-  sourceLines?: string[];
-
-  constructor(private http: HttpClient) {}
-  ngOnInit() {
-    if (this.source != undefined) {
-      this.http.get(this.source, {responseType: "text"}).subscribe(text => {
-        return this.sourceLines = text.split("\n");
-      });
-    }
-  }
 }
 
 @Component({

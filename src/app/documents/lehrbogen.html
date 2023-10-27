@@ -52,8 +52,8 @@
 <p>
   Doppelklicke auf <cb-code>scripts</cb-code> -> <cb-code>script.java</cb-code> <span class="cb-space"></span> <cb-img-dot>2</cb-img-dot>.
   Im Hauptfenster öffnet sich jetzt dein Programm.
-  Alles unter <cb-code>void setup() {{"{"}} ... }</cb-code> <span class="cb-space"></span> <cb-img-dot>3</cb-img-dot> wird zum Programmstart ausgeführt,
-  alles unter <cb-code>void tick() {{"{"}} ... }</cb-code> <span class="cb-space"></span> <cb-img-dot>4</cb-img-dot> wird immer wieder ausgefährt, nämlich zu jedem Spieltick, also 20 mal pro Sekunde.
+  Alles unter <cb-code>void setup() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> <span class="cb-space"></span> <cb-img-dot>3</cb-img-dot> wird zum Programmstart ausgeführt,
+  alles unter <cb-code>void tick() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> <span class="cb-space"></span> <cb-img-dot>4</cb-img-dot> wird immer wieder ausgeführt, nämlich zu jedem Spieltick, also 20 mal pro Sekunde.
 </p>
 
 <img src="assets/documents/lehrbogen/abb-projekt-in-vs-code.png">
@@ -62,7 +62,13 @@
   Lösche zunächst das vorhandene Programm, sodass nur noch übrig bleibt:
 </p>
 
-<cb-code src="assets/documents/lehrbogen/listing-leeres-programm.java"></cb-code>
+<pre class="cb-code">void setup() &lcub;
+
+}
+
+void tick() &lcub;
+
+}</pre>
 
 <p>
   <b>Fertig!</b> Du hast jetzt ein leeres Projekt, mit dem du arbeiten kannst.
@@ -144,10 +150,12 @@
   Jetzt geht es an das Schreiben deines ersten Programms. Gehe dazu wieder zurück in VS Code (mit <cb-code color="grey">Esc</cb-code> bekommst du deinen Mauszeiger zurück) und öffne wieder dein Programm <cb-code>script.java</cb-code>, das von 1. noch leer sein sollte.
 </p>
 <p>
-  Das Ziel deiner ersten Schaltung ist es, die Redstone-Lampe beim Start des Computers anzuschalten. Dazu brauchst du den Befehl <cb-code>writePin(&lt;Pin&gt;, &lt;Wert&gt;)</cb-code>. Dieser setzt den angegebenen Pin auf den angegebenen Wert. Du hast deine Lampe an Pin 1 angeschlossen und willst sie anschalten, der Befehl lautet also: <cb-code>writePin(1, HIGH)</cb-code>, dabei steht "HIGH" für "an" ("LOW" wäre "aus"). Das soll einmalig beim Start des Computers passieren, also bei <cb-code>setup()</cb-code>. Da nichts immer wieder passieren soll, kannst du <cb-code>tick()</cb-code> löschen. Das fertig Programm sieht jetzt so aus:
+  Das Ziel deiner ersten Schaltung ist es, die Redstone-Lampe beim Start des Computers anzuschalten. Dazu brauchst du den Befehl <cb-code>writePin(<em>Pin</em>, <em>Wert</em>)</cb-code>. Dieser setzt den angegebenen Pin auf den angegebenen Wert. Du hast deine Lampe an Pin 1 angeschlossen und willst sie anschalten, der Befehl lautet also: <cb-code>writePin(1, HIGH)</cb-code>, dabei steht "HIGH" für "an" ("LOW" wäre "aus"). Das soll einmalig beim Start des Computers passieren, also bei <cb-code>setup()</cb-code>. Da nichts immer wieder passieren soll, kannst du <cb-code>tick()</cb-code> löschen. Das fertig Programm sieht jetzt so aus:
 </p>
 
-<cb-code src="assets/documents/lehrbogen/listing-versuch1-final.java"></cb-code>
+<pre class="cb-code">void setup() &lcub;
+  writePin(1, HIGH);
+}</pre>
 
 <p></p>
 
@@ -157,7 +165,7 @@
     Die Cranberri-Programme sind in der Programmiersprache Java geschrieben. Hier eine kleine Erläuterung der Grundlagen:
   </p>
   <p>
-    Die Funktionsdefinitionen <cb-code>void setup() {{"{"}} ... }</cb-code> und <cb-code>void tick() {{"{"}} ... }</cb-code> sind wie Überschriften, die dein Programm in logisch zusammenhängende Abschnitte einteilen.
+    Die Funktionsdefinitionen <cb-code>void setup() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> und <cb-code>void tick() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> sind wie Überschriften, die dein Programm in logisch zusammenhängende Abschnitte einteilen.
   </p>
   <p>
     Befehle wie <cb-code>writePin(1, HIGH);</cb-code> werden meist Zeile für Zeile untereinander geschrieben. Sie enden in Java <i>immer</i> mit einem Semikolon <cb-code>;</cb-code>!
@@ -169,7 +177,7 @@
 </p>
 <ol>
   <li>Gehe dazu zurück in Minecraft und rechtsklicke den Computer-Block.</li>
-  <li>Klicke auf das Buch ("Skript...") und gib im Textfeld dein Skript an nach dem Format <cb-code>&lt;Projektname&gt;:&lt;Skriptname&gt;</cb-code>, in diesem Fall also <cb-code>programm1:script</cb-code>.</li>
+  <li>Klicke auf das Buch ("Skript...") und gib im Textfeld dein Skript an nach dem Format <cb-code><em>Projektname</em>:<em>Skriptname</em></cb-code>, in diesem Fall also <cb-code>programm1:script</cb-code>.</li>
   <li>Klicke das Buch rechts ("Confirm"), um deine Angabe zu bestätigen und den Dialog zu schließen.</li>
   <li>Klicke nun auf die noch weißen Wolle ("Off"), um den Computer zu aktivieren und das Skript zu starten. Die Wolle ist nun grün und zeigt "On". Verlasse den Dialog (<cb-code color="grey">Esc</cb-code>).</li>
 </ol>
@@ -205,7 +213,9 @@
 <p>
   Das ist sehr praktisch, wenn man genau nachprüfen möchte, was das eigene Programm macht, es kann aber auch sehr störend sein, wenn der Computer sehr oft Pins schaltet. Deaktiviere es deshalb vorerst mit dem Befehl <cb-code>disableDebug()</cb-code>. Da das einmalig beim Programmstart passieren soll, rufst du den Befehl am besten in <cb-code>setup()</cb-code> auf. Füge entsprechend den folgenden Programmcode an den Anfang deines Programms ein:
 </p>
-<cb-code src="assets/documents/lehrbogen/listing-disable-debug.java"></cb-code>
+<pre class="cb-code">void setup() &lcub;
+  disableDebug();
+}</pre>
 
 <h2>Tick-Zähler</h2>
 
@@ -219,12 +229,13 @@
 <div class="cb-text-box large">
   <cb-badge badge="java"></cb-badge>
   <p>
-    <b>Variablen</b> findet man in fast allen Programmiersprachen. Der Computer verwendet sie, um sich Dinge zu marken. Eine Variable hat einen Namen, einen Wert und einen Typ, also die Information, welche Art von Werten sie speichern kann. In Java legt man eine Variable an mit <cb-code>&lt;Typ&gt; &lt;Name&gt; = &lt;Startwert&gt;</cb-code>. Möchte man einer Variable einen neuen Wert zuweisen, lautet der Befehl <cb-code>&lt;Name&gt; = &lt;neuer Wert&gt;</cb-code>. Der Typ einer Variable kann z. B. <cb-code>int</cb-code> sein, also eine Ganzzahl, oder <cb-code>String</cb-code> für Text. Möchte man den Wert einer Variable verwenden, schreibt man einfach den Namen.
+    <b>Variablen</b> findet man in fast allen Programmiersprachen. Der Computer verwendet sie, um sich Dinge zu marken. Eine Variable hat einen Namen, einen Wert und einen Typ, also die Information, welche Art von Werten sie speichern kann. In Java legt man eine Variable an mit <cb-code><em>Typ</em><span class="cb-space"></span><em>Name</em> = <em>Startwert</em></cb-code>. Möchte man einer Variable einen neuen Wert zuweisen, lautet der Befehl <cb-code><em>Name</em> = <em>neuer Wert</em></cb-code>. Der Typ einer Variable kann z. B. <cb-code>int</cb-code> sein, also eine Ganzzahl, oder <cb-code>String</cb-code> für Text. Möchte man den Wert einer Variable verwenden, schreibt man einfach den Namen.
   </p>
   <p>
-    Im folgenden Beispiel wird eine ganzzahlige Variable mit dem Namen <cb-code>a</cb-code> und dem Startwert 38 erstellt. Anschließend wird der Wert um 4 erhöht, indem der Wert auf die Summe aus dem bisherigen Wert und 4 gesetzt wird.
+    Im folgenden Beispiel wird eine ganzzahlige Variable mit dem Namen <cb-code>a</cb-code> und dem Startwert 38 erstellt <cb-img-dot>1</cb-img-dot>. Anschließend wird der Wert um 4 erhöht <cb-img-dot>2</cb-img-dot>, indem der Wert auf die Summe aus dem bisherigen Wert und 4 gesetzt wird.
   </p>
-  <cb-code src="assets/documents/lehrbogen/listing-variablen.java"></cb-code>
+  <pre class="cb-code">int a = 38;<span class="cb-space"></span><cb-img-dot>1</cb-img-dot>
+a = a + 4;<span class="cb-space"></span><cb-img-dot>2</cb-img-dot></pre>
 </div>
 
 <p>
@@ -233,7 +244,11 @@
 <p>
   Sie soll jetzt bei jedem Aufruf von <cb-code>tick()</cb-code> um 1 hochgezählt werden. Das kannst du lösen, indem du innerhalb von <cb-code>tick()</cb-code> den aktuellen Wert von <cb-code>ticks</cb-code> mit 1 addierst und das Ergebnis als neuen Wert von <cb-code>ticks</cb-code> speicherst. Dieser Teil des Programms sieht jetzt also so aus:
 </p>
-<cb-code src="assets/documents/lehrbogen/listing-ticks.java"></cb-code>
+<pre class="cb-code">int ticks = 0;
+
+void tick() &lcub;
+  ticks = ticks + 1;
+}</pre>
 
 <h2>Lampensteuerung</h2>
 
@@ -268,7 +283,7 @@
 <div class="cb-text-box large">
   <cb-badge badge="java"></cb-badge>
   <p>
-    <b>Verzweigungen</b> findet man auch in den meisten Programmiersprachen, und sie sind eine der grundlegendsten Werkzeuge, um den Programmablauf zu bestimmen. Die einfachste Form der Verzweigung ist eine <cb-code>if</cb-code>-Verzweigung der Form <cb-code>if (&lt;Bedingung&gt;) {{"{"}} &lt;Befehle&gt; }</cb-code> ("if" für engl. "falls"). Sie bedeutet, dass die Befehle innerhalb der geschweiften Klammern (<cb-code>{{"{"}}</cb-code>, <cb-code>}</cb-code>) nur ausgeführt werden, wenn die Bedingung zutrifft.
+    <b>Verzweigungen</b> findet man auch in den meisten Programmiersprachen, und sie sind eine der grundlegendsten Werkzeuge, um den Programmablauf zu bestimmen. Die einfachste Form der Verzweigung ist eine <cb-code>if</cb-code>-Verzweigung der Form <cb-code>if (<em>Bedingung</em>) &lcub; <em>Befehle</em> }</cb-code> ("if" für engl. "falls"). Sie bedeutet, dass die Befehle innerhalb der geschweiften Klammern (<cb-code>&lcub;</cb-code>, <cb-code>}</cb-code>) nur ausgeführt werden, wenn die Bedingung zutrifft.
   </p>
   <p>
     Die Bedingung kann z. B. ein Vergleich zwischen zwei Zahlen sein, wie etwa <cb-code>&lt;</cb-code>, <cb-code>&gt;</cb-code> oder <cb-code>==</cb-code>. Wie du siehst, wird Gleichheit durch zwei <cb-code>=</cb-code> ausgedrückt, um es von einer Wertzuweisung einer Variable zu unterscheiden.
@@ -279,7 +294,23 @@
 <p>
   Zuletzt kannst du jetzt alle Bruchstücke zu einem fertigen Programm verbinden:
 </p>
-<cb-code src="assets/documents/lehrbogen/listing-versuch2-final.java"></cb-code>
+<pre class="cb-code">void setup() &lcub;
+  disableDebug();
+}
+
+int tick = 0;
+
+void tick() &lcub;
+  if (tick % 20 == 0) &lcub;
+    writePin(1, HIGH);
+  }
+
+  if (tick % 20 == 10) &lcub;
+    writePin(1, LOW);
+  }
+
+  tick = tick + 1;
+}</pre>
 
 <p>
   <b>Herzlichen Glückwunsch!</b> Du kannst den Cranberri-Computer jetzt neu starten, um das neue Programm zu testen. Die Lampe sollte wie erwartet in Intervallen von einer halben Sekunde blinken.
@@ -294,7 +325,23 @@
     <p>
       Entsprechend der Aufgabenstellung ist die Dauer der Wiederholung insgesamt 3s, also 60 Ticks. Die Lampe muss also bei 0 Ticks an- und bei 20 Ticks ausgeschaltet werden. Das Programm ist dasselbe wie bisher, nur mit veränderten Zahlenwerten:
     </p>
-    <cb-code src="assets/documents/lehrbogen/listing-versuch2-aufgabe-loesung.java"></cb-code>
+    <pre class="cb-code">void setup() &lcub;
+  disableDebug();
+}
+
+int tick = 0;
+
+void tick() &lcub;
+  if (tick % <b>60</b> == 0) &lcub;
+    writePin(1, HIGH);
+  }
+
+  if (tick % <b>60</b> == <b>20</b>) &lcub;
+    writePin(1, LOW);
+  }
+
+  tick = tick + 1;
+}</pre>
   </cb-collapsable>
 </div>
 
@@ -330,7 +377,8 @@
 <p>
   Da das Programm nicht in die Vergangenheit schauen kann, brauchst du zwei Variablen, um dir den letzten Zustand zu merken: In <cb-code>letztesSignal</cb-code> soll das letzte eingelesene Signal an Pin 2 gespeichert sein, in <cb-code>lampe</cb-code> soll sich das Programm den aktuellen Zustand der Lampe speichern (damit es ihn dann umschalten kann). Da beide Variablen Redstone-Signale darstellen, verwenden wir für sie den Typ <cb-code>PinValue</cb-code>:
 </p>
-<cb-code src="assets/documents/lehrbogen/listing-pin-value.java"></cb-code>
+<pre class="cb-code">PinValue letztesSignal = LOW;
+PinValue lampe = LOW;</pre>
 
 <p>
   Bevor wir das Programm weiter implementieren, legen wir den Programmablauf fest:
@@ -338,21 +386,46 @@
 <img src="assets/documents/lehrbogen/abb-versuch3-algorithmus.png" class="small">
 
 <p>
-  Zum Einlesen des anliegenden Signals an einem Pin brauchst du den Befehl <cb-code>readPin(&lt;Pin&gt;)</cb-code>, der einen Wert vom Typ <cb-code>PinValue</cb-code> zurückgibt.
 </p>
 <div class="cb-text-box large">
+  <p>
+    Zum Einlesen des anliegenden Signals an einem Pin brauchst du den Befehl <cb-code>readPin(<em>Pin</em>)</cb-code>, der einen Wert vom Typ <cb-code>PinValue</cb-code> zurückgibt.
+  </p>
   <cb-badge badge="java"></cb-badge>
   <p>
     Zum Programmieren unserer komplexeren Bedingung, bei der wir zwei Bedingungen verknüpfen, brauchen wir den Und-Operator <cb-code>&&</cb-code>. Die Bedingung ist dann nur erfüllt, wenn beide Teilbedingungen erfüllt sind.
   </p>
   <p>
-    Um die Verzweigungen "Lampe an?" und "Lampe aus?" zu vereinfachen verwenden wir eine erweitere <cb-code>if</cb-code>-Verzweigung der Form <cb-code>if (&lt;Bedingung&gt;) {{"{"}} ... } else {{"{"}} ... }</cb-code> ("else" für engl. "sonst"). Die Befehle in den geschwungenen Klammern werden dann jeweils nur dann ausgeführt, wenn die Bedingung zutrifft bzw. nicht zutrifft.
+    Um die Verzweigungen "Lampe an?" und "Lampe aus?" zu vereinfachen verwenden wir eine erweitere <cb-code>if</cb-code>-Verzweigung der Form <cb-code>if (<em>Bedingung</em>) &lcub; <em class="ellipsis">&ctdot;</em> } else &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> ("else" für engl. "sonst"). Die Befehle in den geschwungenen Klammern werden dann jeweils nur dann ausgeführt, wenn die Bedingung zutrifft bzw. nicht zutrifft.
   </p>
 </div>
 <p>
   Damit kannst du nun bereits das fertige Programm schreiben, das genau dem oben gezeigten Ablauf nach funktioniert:
 </p>
-<cb-code src="assets/documents/lehrbogen/listing-versuch3-final.java"></cb-code>
+
+<pre class="cb-code">void setup() &lcub;
+  disableDebug();
+}
+
+PinValue letztesSignal = LOW;
+PinValue lampe = LOW;
+
+void tick() &lcub;
+  PinValue signal = readPin(2);
+
+  if (letztesSignal == LOW && signal == HIGH) &lcub;
+    if (lampe == LOW) &lcub;
+      writePin(1, HIGH);
+      lampe = HIGH;
+    } else &lcub;
+      writePin(1, LOW);
+      lampe = LOW;
+    }
+  }
+
+  letztesSignal = signal;
+}</pre>
+
 <p>
   <b>Herzlichen Glückwunsch!</b> Du kannst den Cranberri-Computer jetzt neu starten, um das neue Programm zu testen. Die Lampe sollte wie erwartet angeschaltet werden, wenn du den Knopf betätigst, und wieder ausgehen, wenn du erneut drückst.
 </p>
@@ -370,7 +443,18 @@
     <p>
       Das Programm dazu:
     </p>
-    <cb-code src="assets/documents/lehrbogen/listing-versuch3-aufgabe-loesung.java"></cb-code>
+    <pre class="cb-code">void setup() &lcub;
+  disableDebug();
+}
+
+void tick() &lcub;
+  if (readPin(1) == HIGH) &lcub;
+    writePin(3, HIGH);
+  }
+  if (readPin(2) == HIGH) &lcub;
+    writePin(3, LOW);
+  }
+}</pre>
   </cb-collapsable>
 </div>
 
