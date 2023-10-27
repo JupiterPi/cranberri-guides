@@ -39,7 +39,7 @@
     Für <b>Bundle-Nutzer</b>:
   </p>
   <p>
-    Befolge die Schritte 1, 2 (nur 1.) und 4 (1.-2.) in <a routerLink="/bundle-einfuehrung-und-benutzungsanweisung">Cranberri Bundle: Einführung & Benutzungsanweisung</a>, um ein Projekt zu erstellen und VS Code zu öffnen.
+    Befolge die Schritte 1, 2 (nur 1.) und 4 (1.-2.) in <a routerLink="/bundle-einfuehrung-und-benutzungsanweisung">Cranberri Bundle: Einführung & Benutzungsanweisung</a>, um Cranberri zu installieren, ein Projekt zu erstellen und VS Code zu öffnen.
   </p>
 </div>
 
@@ -61,7 +61,6 @@
 <p>
   Lösche zunächst das vorhandene Programm, sodass nur noch übrig bleibt:
 </p>
-
 <pre class="cb-code">void setup() &lcub;
 
 }
@@ -69,6 +68,14 @@
 void tick() &lcub;
 
 }</pre>
+<p>
+  Drücke dann <cb-code color="grey">Strg</cb-code> + <cb-code color="grey">S</cb-code>, um dein Programm zu speichern. Das musst du immer machen, nachdem du etwas verändert hast.
+</p>
+<div class="cb-text-box">
+  <p>
+    <b>Hinweis:</b> Geschweifte Klammern erhältst du meist mit den Tastenkombinationen <cb-code color="grey">AltGr</cb-code> + <cb-code color="grey">7</cb-code> für <cb-code>&lcub;</cb-code> und <cb-code color="grey">AltGr</cb-code> + <cb-code color="grey">0</cb-code> für <cb-code>}</cb-code>.
+  </p>
+</div>
 
 <p>
   <b>Fertig!</b> Du hast jetzt ein leeres Projekt, mit dem du arbeiten kannst.
@@ -91,6 +98,9 @@ void tick() &lcub;
 <p>
   Starte den Server mit einer neuen Welt und öffne sie in Minecraft.
 </p>
+<!--<p>
+  Vermutlich musst du dir zuerst noch Operatorrechte geben. Wenn du den Server betrittst, wird im Chat dein Name ausgegeben. Gib entsprechend in der Serverkonsole (schwarzes Fenster) den Befehl <cb-code>op <em>Spielername</em></cb-code> ein und drücke <cb-code color="grey">Enter</cb-code>, um ihn auszuführen.
+</p>-->
 
 <div class="cb-text-box large">
   <cb-badge badge="minecraft"></cb-badge>
@@ -106,16 +116,16 @@ void tick() &lcub;
     <li>Drücke <cb-code color="grey">E</cb-code>, um dein Inventar zu öffnen. Hier kannst du (im Kreativmodus) beliebige Items nehmen und in deiner Hotbar ablegen.</li>
     <li>Drücke <cb-code color="grey">T</cb-code> zum Öffnen des Chats. Hier kannst du Befehle eingeben und mit <cb-code color="grey">Enter</cb-code> ausführen.</li>
   </ul>
-  <p>
+  <!--<p>
     Führe den den Befehl <cb-code>/gamemode creative</cb-code> aus, um den Kreativmodus zu aktivieren. Damit bist du unverwundbar, hast Zugriff auf beliebige Items und kannst fliegen.
-  </p>
+  </p>-->
 </div>
 
 <p>
-  Finde im Kreativmodus eine schöne freie Fläche, auf der du arbeiten kannst. Führe dann den Befehl <cb-code>/cb</cb-code> aus, um einen Cranberri-Computer zu erhalten.
+  Finde <!--im Kreativmodus--> eine schöne freie Fläche, auf der du arbeiten kannst. Führe dann den Befehl <cb-code>/cb</cb-code> aus, um einen Cranberri-Computer zu erhalten.
 </p>
 <ol>
-  <li>Platziere ihn auf einem passenden Block, z. B. Grasblock.</li>
+  <li>Platziere ihn auf einem passenden Block, z. B. einem Grasblock. Drücke <cb-code color="grey">Esc</cb-code>, um das Dialogfenster "Configure Computer" vorerst zu schließen.</li>
   <li>Platziere nun an der Seite des Computers eine Reihe von ca. 2 Glasblöcken in eine beliebige Richtung. Das ist die Basis für alle Pins am Computer. Pins sind die Stellen, an denen Redstone-Komponenten wie Lampen, Schalter etc. an den Computer angeschlossen werden können.</li>
   <li>Platziere an einen der Glasblöcke einen Redstone-Verstärker, der vom Glasblock wegzeigt. Das ist nun Pin 1.</li>
   <li>Setze daran einen weiteren Verstärker<cb-footnote text="Das hat einen Bug zur Ursache, durch den die Leitung sonst flackert. Bis dieser behoben ist, ist das das einfachste Workaround."></cb-footnote> und verbinde mit einem Redstone-Staub eine Redstone-Lampe.</li>
@@ -177,7 +187,7 @@ void tick() &lcub;
 </p>
 <ol>
   <li>Gehe dazu zurück in Minecraft und rechtsklicke den Computer-Block.</li>
-  <li>Klicke auf das Buch ("Skript...") und gib im Textfeld dein Skript an nach dem Format <cb-code><em>Projektname</em>:<em>Skriptname</em></cb-code>, in diesem Fall also <cb-code>programm1:script</cb-code>.</li>
+  <li>Klicke auf das Buch ("Script...") und gib im Textfeld dein Skript an nach dem Format <cb-code><em>Projektname</em>:<em>Skriptname</em></cb-code>, in diesem Fall also <cb-code>programm1:script</cb-code>.</li>
   <li>Klicke das Buch rechts ("Confirm"), um deine Angabe zu bestätigen und den Dialog zu schließen.</li>
   <li>Klicke nun auf die noch weißen Wolle ("Off"), um den Computer zu aktivieren und das Skript zu starten. Die Wolle ist nun grün und zeigt "On". Verlasse den Dialog (<cb-code color="grey">Esc</cb-code>).</li>
 </ol>
@@ -201,10 +211,21 @@ void tick() &lcub;
   </cb-collapsable>
 </div>
 
+<p></p>
+<div class="cb-text-box">
+  <p>
+    <b>Hinweis:</b> Es ist wichtig, dass du den Server ordnungsgemäß herunterfährst, wenn du Cranberri schließt. Gib dazu einfach den Befehl <cb-code>stop</cb-code> in der Serverkonsole (schwarzes Fenster) ein und drücke <cb-code color="grey">Enter</cb-code>.
+  </p>
+</div>
+
 
 <cb-chapter ordinal="3">Die Lampe blinkt</cb-chapter>
 
-<h2 class="no-space">Debugging deaktivieren</h2>
+<p>
+  Lösche zunächst dein aktuelles Programm, sodass es wieder wie in 1. leer ist.
+</p>
+
+<h2>Debugging deaktivieren</h2>
 
 <p>
   Aktuell gibt dein Programm immer, wenn es einen Pin steuert, in der Konsole aus, was es tut:
@@ -214,7 +235,7 @@ void tick() &lcub;
   Das ist sehr praktisch, wenn man genau nachprüfen möchte, was das eigene Programm macht, es kann aber auch sehr störend sein, wenn der Computer sehr oft Pins schaltet. Deaktiviere es deshalb vorerst mit dem Befehl <cb-code>disableDebug()</cb-code>. Da das einmalig beim Programmstart passieren soll, rufst du den Befehl am besten in <cb-code>setup()</cb-code> auf. Füge entsprechend den folgenden Programmcode an den Anfang deines Programms ein:
 </p>
 <pre class="cb-code">void setup() &lcub;
-  disableDebug();
+  <b>disableDebug();</b>
 }</pre>
 
 <h2>Tick-Zähler</h2>
@@ -298,18 +319,18 @@ void tick() &lcub;
   disableDebug();
 }
 
-int tick = 0;
+int ticks = 0;
 
 void tick() &lcub;
-  if (tick % 20 == 0) &lcub;
+  if (ticks % 20 == 0) &lcub;
     writePin(1, HIGH);
   }
 
-  if (tick % 20 == 10) &lcub;
+  if (ticks % 20 == 10) &lcub;
     writePin(1, LOW);
   }
 
-  tick = tick + 1;
+  ticks = ticks + 1;
 }</pre>
 
 <p>
