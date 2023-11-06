@@ -6,7 +6,7 @@ import {
   CbBadge,
   CbChapter,
   CbCode, CbCollapsable,
-  CbEvaluationTable,
+  CbEvaluationTable, CbFooter,
   CbFootnote,
   CbHeader,
   CbImageDot
@@ -22,6 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
 
     CbHeader,
+    CbFooter,
     CbChapter,
     CbCode,
     CbEvaluationTable,

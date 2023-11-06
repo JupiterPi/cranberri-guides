@@ -53,6 +53,15 @@ li {
   margin-bottom: 60px;
 }
 
+.cb-footer {
+  margin-top: 40px;
+  color: grey;
+  text-align: end;
+  a {
+    color: mix(grey, $cb-blue, 30%) !important;
+  }
+}
+
 .cb-logo {
   background-color: $cb-black;
   border-radius: 10px;
