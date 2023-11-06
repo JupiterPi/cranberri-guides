@@ -15,6 +15,16 @@ import {Component, Input} from "@angular/core";
 export class CbHeader {}
 
 @Component({
+  selector: "cb-footer",
+  template: `
+    <p class="cb-footer">
+      Alle Inhalte &copy; 2023 JupiterPi &bull; auf <a href="https://github.com/JupiterPi/cranberri-guides" target="_blank">GitHub</a> &bull; <a href="https://github.com/JupiterPi/cranberri" target="_blank">Cranberri</a>
+    </p>
+  `
+})
+export class CbFooter {}
+
+@Component({
   selector: "cb-chapter",
   template: `
     <div class="cb-chapter">
