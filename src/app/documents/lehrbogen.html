@@ -361,7 +361,31 @@ void tick() &lcub;
 </p>
 
 <div class="cb-text-box black">
-  <h2>Übungsaufgabe</h2>
+  <h2>Übungsaufgabe 1</h2>
+  <p>
+    Was macht das folgende Programm?
+  </p>
+  <pre class="cb-code">int tick = 0;
+
+void loop() &lcub;
+    if (<b>tick % 100 == 0</b>) &lcub;
+    <b>writePin(1, LOW);</b>
+  }
+
+  if (<b>tick % 100 == 80</b>) &lcub;
+    <b>writePin(1, HIGH);</b>
+  }
+}</pre>
+  <cb-collapsable label="Lösung">
+    <p>
+      Die Modulo-Zahl ist hier jetzt 100, ein "Durchgang" ist also 5s lang. Nach 0 Ticks, also beim Start eines Durchlaufs, wird die an Pin 1 angeschlossene Lampe ausgeschaltet, und nach 80 Ticks (also nach 4s) wird sie angeschaltet. Da bereits 20 Ticks (also 1s) später der Durchlauf zu Ende ist und der nächste beginnt, leuchtet sie auch nur für 1s.
+    </p>
+    <p>
+      Die Lampe wird also fortwährend für 4s ausgeschaltet und dann für 1s angeschaltet.
+    </p>
+  </cb-collapsable>
+
+  <h2>Übungsaufgabe 2</h2>
   <p>
     Schreibe ein Programm, das die Lampe fortwährend für 1s anschaltet und dann für 2s ausschaltet.
   </p>
