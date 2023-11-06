@@ -11,7 +11,12 @@ import {
   CbHeader,
   CbImageDot
 } from "./components/cb-components";
-import {DocBundleEinfuehrungUndBenutzungsanweisung, DocLehrbogen, DocLehrbogenEvaluation} from "./documents";
+import {
+  DocBundleEinfuehrungUndBenutzungsanweisung,
+  DocFortgeschrittenesProjekt,
+  DocLehrbogen,
+  DocLehrbogenEvaluation
+} from "./documents";
 import {RouterModule} from "@angular/router";
 import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -33,6 +38,7 @@ import {HttpClientModule} from "@angular/common/http";
     DocBundleEinfuehrungUndBenutzungsanweisung,
     DocLehrbogen,
     DocLehrbogenEvaluation,
+    DocFortgeschrittenesProjekt,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,7 @@ import {HttpClientModule} from "@angular/common/http";
       { path: "bundle-einfuehrung-und-benutzungsanweisung", component: DocBundleEinfuehrungUndBenutzungsanweisung },
       { path: "lehrbogen-evaluation", component: DocLehrbogenEvaluation },
       { path: "lehrbogen", component: DocLehrbogen },
+      { path: "fortgeschrittenes-projekt", component: DocFortgeschrittenesProjekt },
     ]),
     HttpClientModule,
   ],
