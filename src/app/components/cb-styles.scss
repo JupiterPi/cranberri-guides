@@ -396,3 +396,34 @@ table.cb-evaluation-table {
     border-radius: 10px;
   }
 }
+
+.cb-toggle-button-container {
+  display: flex;
+  justify-content: flex-end;
+
+  div {
+    padding: 5px 8px;
+    border: 1px solid transparentize($cb-black, 0.5);
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      border-left: none;
+    }
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    transition: background-color 150ms ease;
+    //background: transparentize($cb-black, 0.9);
+    background: transparentize($cb-blue, 0.85);
+    &.selected {
+      background: $cb-blue;
+    }
+  }
+}

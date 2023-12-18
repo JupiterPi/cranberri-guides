@@ -31,6 +31,11 @@
   Viel Spaß!
 </p>
 
+<div class="cb-toggle-button-container">
+  <div [class.selected]="!arduinoMode" (click)="arduinoMode = false">Standard-Modus</div>
+  <div [class.selected]="arduinoMode" (click)="arduinoMode = true">Arduino-Modus</div>
+</div>
+
 
 <cb-chapter ordinal="1">Vorbereitung</cb-chapter>
 
@@ -65,7 +70,12 @@
   Doppelklicke auf <cb-code>scripts</cb-code> -> <cb-code>script.java</cb-code> <span class="cb-space"></span> <cb-img-dot>2</cb-img-dot>.
   Im Hauptfenster öffnet sich jetzt dein Programm.
   Alles unter <cb-code>void setup() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> <span class="cb-space"></span> <cb-img-dot>3</cb-img-dot> wird zum Programmstart ausgeführt,
-  alles unter <cb-code>void tick() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> <span class="cb-space"></span> <cb-img-dot>4</cb-img-dot> wird immer wieder ausgeführt, nämlich zu jedem Spieltick, also 20 mal pro Sekunde.
+  <ng-container *ngIf="arduinoMode">
+    alles unter <cb-code>void loop() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> <span class="cb-space"></span> <cb-img-dot>4</cb-img-dot> wird immer wieder ausgeführt, sodass nach einem Durchlauf von <cb-code>loop()</cb-code> direkt der nächste beginnt.
+  </ng-container>
+  <ng-container *ngIf="!arduinoMode">
+    alles unter <cb-code>void tick() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> <span class="cb-space"></span> <cb-img-dot>4</cb-img-dot> wird immer wieder ausgeführt, nämlich zu jedem Spieltick, also 20 mal pro Sekunde.
+  </ng-container>
 </p>
 
 <img src="assets/documents/lehrbogen/abb-projekt-in-vs-code.png">
@@ -77,7 +87,7 @@
 
 }
 
-void tick() &lcub;
+void <ng-container *ngIf="arduinoMode">loop</ng-container><ng-container *ngIf="!arduinoMode">tick</ng-container>() &lcub;
 
 }</pre>
 <p>
@@ -184,10 +194,16 @@ void tick() &lcub;
   Jetzt geht es an das Schreiben deines ersten Programms. Gehe dazu wieder zurück in VS Code (mit <cb-code color="grey">Esc</cb-code> bekommst du deinen Mauszeiger zurück) und öffne wieder dein Programm <cb-code>script.java</cb-code>, das von 1. noch leer sein sollte.
 </p>
 <p>
-  Das Ziel deiner ersten Schaltung ist es, die Redstone-Lampe beim Start des Computers anzuschalten. Dazu brauchst du den Befehl <cb-code>writePin(<em>Pin</em>, <em>Wert</em>)</cb-code>. Dieser setzt den angegebenen Pin auf den angegebenen Wert. Du hast deine Lampe an Pin 1 angeschlossen und willst sie anschalten, der Befehl lautet also: <cb-code>writePin(1, HIGH)</cb-code>, dabei steht "HIGH" für "an" ("LOW" wäre "aus"). Das soll einmalig beim Start des Computers passieren, also bei <cb-code>setup()</cb-code>. Da nichts immer wieder passieren soll, kannst du <cb-code>tick()</cb-code> löschen. Das fertig Programm sieht jetzt so aus:
+  Das Ziel deiner ersten Schaltung ist es, die Redstone-Lampe beim Start des Computers anzuschalten.
+  <ng-container *ngIf="arduinoMode">
+    Dafür musst du zuerst den Pin in den richtigen Modus setzen, indem du den Befehl <cb-code>pinMode(<em>Pin</em>, <em>Modus</em>)</cb-code> verwendest. Du willst die Lampe an Pin 1 steuern, du willst also diesen Pin in den Ausgabe-Modus <cb-code>OUTPUT</cb-code> setzen (wolltest du stattdessen eingehende Signale einlesen, bräuchtest du dafür den Eingabe-Modus <cb-code>INPUT</cb-code>), der Befehl lautet also: <cb-code>pinMode(1, OUTPUT)</cb-code>.
+    Jetzt musst du die Lampe noch anschalten.
+  </ng-container>
+  Dazu brauchst du den Befehl <cb-code>writePin(<em>Pin</em>, <em>Wert</em>)</cb-code>. Dieser setzt den angegebenen Pin auf den angegebenen Wert. Du hast deine Lampe an Pin 1 angeschlossen und willst sie anschalten, der Befehl lautet also: <cb-code>writePin(1, HIGH)</cb-code>, dabei steht <cb-code>HIGH</cb-code> für "an" (<cb-code>LOW</cb-code> wäre "aus"). Das soll einmalig beim Start des Computers passieren, also bei <cb-code>setup()</cb-code>.
+  Da nichts immer wieder passieren soll, kannst du <cb-code>{{tickOrLoop}}()</cb-code> löschen. Das fertig Programm sieht jetzt so aus:
 </p>
 
-<pre class="cb-code">void setup() &lcub;
+<pre class="cb-code">void setup() &lcub;<ng-container *ngIf="arduinoMode"><br>  pinMode(1, OUTPUT);</ng-container>
   writePin(1, HIGH);
 }</pre>
 
@@ -199,7 +215,7 @@ void tick() &lcub;
     Die Cranberri-Programme sind in der Programmiersprache Java geschrieben. Hier eine kleine Erläuterung der Grundlagen:
   </p>
   <p>
-    Die Funktionsdefinitionen <cb-code>void setup() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> und <cb-code>void tick() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> sind wie Überschriften, die dein Programm in logisch zusammenhängende Abschnitte einteilen.
+    Die Funktionsdefinitionen <cb-code>void setup() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> und <cb-code>void {{tickOrLoop}}() &lcub; <em class="ellipsis">&ctdot;</em> }</cb-code> sind wie Überschriften, die dein Programm in logisch zusammenhängende Abschnitte einteilen.
   </p>
   <p>
     Befehle wie <cb-code>writePin(1, HIGH);</cb-code> werden meist Zeile für Zeile untereinander geschrieben. Sie enden in Java <i>immer</i> mit einem Semikolon <cb-code>;</cb-code>!
@@ -232,7 +248,9 @@ void tick() &lcub;
     Schreibe den Befehl, um in einer hypothetischen Schaltung eine Lampe, die an Pin 2 angeschlossen ist, auszuschalten.
   </p>
   <cb-collapsable label="Lösung">
-    <cb-code>writePin(2, LOW);</cb-code>
+    <pre class="cb-code">void setup() &lcub;<ng-container *ngIf="arduinoMode"><br>  pinMode(2, OUTPUT);</ng-container>
+  writePin(2, LOW);
+}</pre>
   </cb-collapsable>
 </div>
 
@@ -262,6 +280,8 @@ void tick() &lcub;
 <pre class="cb-code">void setup() &lcub;
   <b>disableDebug();</b>
 }</pre>
+
+<!-- ########## todo: ARDUINO MODE ADAPTIONS PENDING FROM HERE ########## -->
 
 <h2>Tick-Zähler</h2>
 
