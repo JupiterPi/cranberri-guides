@@ -367,14 +367,14 @@ void tick() &lcub;
   <p>
     Was macht das folgende Programm?
   </p>
-  <pre class="cb-code">int tick = 0;
+  <pre class="cb-code">int ticks = 0;
 
-void loop() &lcub;
-    if (<b>tick % 100 == 0</b>) &lcub;
+void tick() &lcub;
+    if (<b>ticks % 100 == 0</b>) &lcub;
     <b>writePin(1, LOW);</b>
   }
 
-  if (<b>tick % 100 == 80</b>) &lcub;
+  if (<b>ticks % 100 == 80</b>) &lcub;
     <b>writePin(1, HIGH);</b>
   }
 }</pre>
@@ -399,18 +399,18 @@ void loop() &lcub;
   disableDebug();
 }
 
-int tick = 0;
+int ticks = 0;
 
 void tick() &lcub;
-  if (tick % <b>60</b> == 0) &lcub;
+  if (ticks % <b>60</b> == 0) &lcub;
     writePin(1, HIGH);
   }
 
-  if (tick % <b>60</b> == <b>20</b>) &lcub;
+  if (ticks % <b>60</b> == <b>20</b>) &lcub;
     writePin(1, LOW);
   }
 
-  tick = tick + 1;
+  ticks = ticks + 1;
 }</pre>
   </cb-collapsable>
 </div>
