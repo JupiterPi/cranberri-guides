@@ -1,25 +1,118 @@
-<cb-header>Lehrbogen: Evaluation</cb-header>
+<cb-header>Evaluation</cb-header>
 
-
-<cb-chapter ordinal="1">Persönliche Daten</cb-chapter>
-
-<div class="text">
-  Name: <div class="cb-handwrite-space"></div>
-  <div class="cb-spacer"></div>
-  Klasse: <div class="cb-handwrite-space small"></div>
-  <div class="cb-spacer"></div>
-  IMP: <div class="cb-checkbox"></div>
+<div class="hide-in-print">
+  <div class="cb-text-box">
+    <p>
+      <b>Drucken:</b> Drücken Sie <cb-code color="grey">Strg</cb-code>+<cb-code color="grey">P</cb-code>, um den Druck-Dialog mit einer Vorschau des ausgedruckten Dokuments zu sehen. Passen Sie dort (evtl. unter "Erweitert") die Skalierung an (ca. 72%).
+    </p>
+  </div>
 </div>
 
+<div class="print-protection">
 
-<cb-chapter ordinal="2">Vorkenntnisse</cb-chapter>
+  <cb-chapter ordinal="1">Persönliche Daten</cb-chapter>
 
-<cb-evaluation-table
-  [options]='["Ja", "Ein wenig", "Nein"]'
-  [questions]='[
+  <div class="text">
+    Klasse: <div class="cb-handwrite-space small"></div>
+    <div class="cb-spacer"></div>
+    IMP: <div class="cb-checkbox"></div>
+  </div>
+
+</div>
+<div class="print-protection">
+
+  <cb-chapter ordinal="2">Vorkenntnisse</cb-chapter>
+
+  <cb-evaluation-table
+    [options]='["Ja", "Ein wenig", "Nein"]'
+    [questions]='[
     "Ich habe bereits Minecraft gespielt und kann das Spiel bedienen.",
     "Ich habe bereits in Minecraft mit Redstone gearbeitet und beherrsche die Grundlagen.",
+    "Ich habe bereits programmiert, nämlich:___",
     "Ich habe bereits in Java programmiert, nämlich:___",
-    "Ich habe bereits mit Mikrocontrollern (Arduino, Calliope, …) gearbeitet bzw. programmiert, nämlich:___",
+    "Ich habe bereits mit Mikrocontrollern (Arduino, …) gearbeitet bzw. programmiert, nämlich:___",
   ]'
-></cb-evaluation-table>
+  ></cb-evaluation-table>
+
+</div>
+<div class="print-protection">
+
+  <cb-chapter ordinal="3">Lehrbogen</cb-chapter>
+
+  <cb-evaluation-table
+    [options]='["Ja", "Eher ja", "Eher nein", "Nein"]'
+    [questions]='[
+      "Ich fand den Lehrbogen allgemein verständlich.",
+      "Die Informationskästen waren ausreichend, um fehlende Vorkenntnisse (Minecraft/Redstone oder Java-Grundlagen) nachzuholen.",
+      "Die Lösungsansätze waren klar verständlich.",
+      "Es war klar verständlich, wie die Redstone-Schaltungen gebaut werden sollen.",
+      "Der Ablauf der Programme war klar verständlich.",
+    ]'
+  ></cb-evaluation-table>
+  <div class="print-only">
+    <p style="text-align: end; color: grey">--> auf der Rückseite geht es weiter</p>
+  </div>
+
+</div>
+<div class="print-protection">
+
+  <cb-chapter ordinal="4">Cranberri</cb-chapter>
+
+  <cb-evaluation-table
+    [options]='["Ja", "Eher ja", "Eher nein", "Nein"]'
+    [questions]='[
+      "Ich habe mit Cranberri erfolgreich etwas über Mikrocontrollerprogrammierung gelernt.",
+      "Ich habe mit Cranberri erfolgreich etwas über Programmieren in Java gelernt.",
+      "Das Arbeiten mit Cranberri hat bei mir Interesse geweckt.",
+      "Das Arbeiten mit Cranberri hat mir Spaß gemacht.",
+      "Ich würde gerne mehr mit Cranberri arbeiten."
+    ]'
+  ></cb-evaluation-table>
+
+</div>
+<div class="print-protection">
+
+  <cb-chapter ordinal="5">ähnliche Tools</cb-chapter>
+
+  <div class="text" style="width: 80%">
+    <div class="cb-checkbox"></div>
+    Ich habe bereits mit einem anderen Tool für Programmieranfänger (Arduino, Tinkercad, Processing, …) gearbeitet, nämlich: <div class="cb-handwrite-space"></div>
+  </div>
+
+  <div class="cb-block-spacer"></div>
+
+  <cb-evaluation-table
+    [options]='["Ja", "Eher ja", "Eher nein", "Nein"]'
+    [questions]='[
+      "Falls anwendbar: Ich habe mit diesem Tool erfolgreich etwas über Mikrocontrollerprogrammierung gelernt.",
+      "Falls anwendbar: Ich habe mit diesem Tool erfolgreich etwas über Programmieren in Java gelernt.",
+      "Das Arbeiten mit diesem Tool hat bei mir Interesse geweckt.",
+      "Das Arbeiten mit diesem Tool hat mir Spaß gemacht.",
+      "Ich würde im Unterricht statt mit diesem Tool lieber mit Cranberri arbeiten."
+    ]'
+  ></cb-evaluation-table>
+
+</div>
+<div class="print-protection">
+
+  <cb-chapter ordinal="6">Verbesserungsvorschläge</cb-chapter>
+
+  <p>
+    Falls du Vorschläge hast, wie ich Cranberri (oder den Lehrbogen) verbessern kann, kannst du sie sehr gerne hier eintragen:
+  </p>
+
+  <div class="cb-handwrite-block"></div>
+
+</div>
+<div class="print-protection">
+
+  <div class="cb-block-spacer"></div>
+  <p>
+    Vielen Dank für deine Teilnahme an diesem Versuch!
+  </p>
+
+</div>
+
+<div class="hide-in-print">
+  <cb-footer></cb-footer>
+</div>

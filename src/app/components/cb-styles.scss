@@ -215,6 +215,13 @@ img {
 }
 
 /* class-only */
+.cb-handwrite-block {
+  height: 250px;
+  border: 1px solid transparentize($cb-black, 0.6);
+  border-radius: 5px;
+}
+
+/* class-only */
 .cb-spacer {
   display: inline-block;
   width: 50px;
@@ -224,6 +231,12 @@ img {
 .cb-space {
   display: inline-block;
   width: 5px;
+}
+
+/* class-only */
+.cb-block-spacer {
+  display: block;
+  height: 25px;
 }
 
 /* class-only */
@@ -394,5 +407,21 @@ table.cb-evaluation-table {
     margin-top: 18px;
     background-color: white;
     border-radius: 10px;
+  }
+}
+
+.print-only {
+  display: none;
+}
+@media print {
+  .hide-in-print {
+    display: none;
+  }
+  .print-only {
+    display: inherit;
+  }
+
+  .print-protection {
+    break-inside: avoid;
   }
 }
