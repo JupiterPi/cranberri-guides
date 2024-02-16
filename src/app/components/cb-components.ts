@@ -160,3 +160,13 @@ export class CbCollapsable {
   @Input("label") label?: string;
   collapsed = true;
 }
+
+@Component({
+  selector: "cb-big-button",
+  template: `
+    <div class="cb-big-button">
+      <ng-content></ng-content>
+    </div>
+  `
+})
+export class CbBigButton {}

@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {
-  CbBadge,
+  CbBadge, CbBigButton,
   CbChapter,
   CbCode, CbCollapsable,
   CbEvaluationTable, CbFooter,
@@ -11,7 +11,7 @@ import {
   CbHeader,
   CbImageDot
 } from "./components/cb-components";
-import {DocBundleEinfuehrungUndBenutzungsanweisung, DocLehrbogen, DocLehrbogenEvaluation} from "./documents";
+import {DocBundleEinfuehrungUndBenutzungsanweisung, DocLehrbogen, DocLehrbogenEvaluation, DocPlakat} from "./documents";
 import {RouterModule} from "@angular/router";
 import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -30,10 +30,12 @@ import {HttpClientModule} from "@angular/common/http";
     CbBadge,
     CbFootnote,
     CbCollapsable,
+    CbBigButton,
 
     DocBundleEinfuehrungUndBenutzungsanweisung,
     DocLehrbogen,
     DocLehrbogenEvaluation,
+    DocPlakat,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import {HttpClientModule} from "@angular/common/http";
       { path: "bundle-einfuehrung-und-benutzungsanweisung", component: DocBundleEinfuehrungUndBenutzungsanweisung },
       { path: "lehrbogen-evaluation", component: DocLehrbogenEvaluation },
       { path: "lehrbogen", component: DocLehrbogen },
+      { path: "plakat", component: DocPlakat },
     ]),
     HttpClientModule,
   ],

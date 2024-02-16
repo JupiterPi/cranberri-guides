@@ -11,7 +11,7 @@ $font-size-text: 18px;
   font-size: $font-size-text;
 }
 
-p, li, td, .text {
+p, li, td, .text, .cb-big-button {
   font-weight: 500;
   line-height: 1.5;
 }
@@ -407,6 +407,24 @@ table.cb-evaluation-table {
     margin-top: 18px;
     background-color: white;
     border-radius: 10px;
+  }
+}
+
+.cb-big-button {
+  display: inline-block;
+  padding: 23px 25px;
+  background: $cb-blue;
+  border-radius: 20px;
+  animation: cb-big-button-idle 2s ease infinite;
+  cursor: pointer;
+  margin: 10px 0;
+}
+@keyframes cb-big-button-idle {
+  0%, 100% {
+    box-shadow: transparentize($cb-blue, 0.5) 0 0 4px 2px;
+  }
+  50% {
+    box-shadow: transparentize($cb-blue, 0.8) 0 0 4px 2px;
   }
 }
 
